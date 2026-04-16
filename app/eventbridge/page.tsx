@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   title:
     "Centralisez et diffusez les événements de votre territoire",
   description:
-    "EventBridge collecte, normalise (Apidae / DATAtourisme) et diffuse en temps réel les événements culturels de votre territoire. Pour les offices de tourisme, collectivités, départements et régions.",
+    "EventBridge collecte, normalise (DATAtourisme) et diffuse en temps réel les événements culturels de votre territoire. Pour les offices de tourisme, collectivités, départements et régions.",
   alternates: {
     canonical: "/eventbridge",
   },
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title:
       "EventBridge — Centralisez et diffusez les événements de votre territoire",
     description:
-      "Collecte automatique, normalisation Apidae/DATAtourisme, diffusion temps réel multi-canaux.",
+      "Collecte automatique, normalisation DATAtourisme, diffusion temps réel multi-canaux.",
     url: "/eventbridge",
     type: "website",
     locale: "fr_FR",

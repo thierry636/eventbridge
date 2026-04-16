@@ -9,9 +9,9 @@ const AUDIENCES: Array<{
   {
     title: "Offices de tourisme",
     description:
-      "Enrichissez votre base Apidae sans saisie manuelle, et garantissez une information à jour pour vos visiteurs.",
+      "Enrichissez votre base événementielle sans saisie manuelle, et garantissez une information à jour pour vos visiteurs.",
     bullets: [
-      "Synchronisation Apidae bidirectionnelle",
+      "Synchronisation bidirectionnelle avec vos outils",
       "Modération assistée par IA",
       "Couverture de toute l'offre du territoire",
     ],

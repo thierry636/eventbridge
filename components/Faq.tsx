@@ -1,7 +1,7 @@
 const FAQS = [
   {
-    q: "EventBridge remplace-t-il Apidae ?",
-    a: "Non. EventBridge alimente Apidae : nous collectons et normalisons les événements de votre territoire, puis les publions automatiquement dans votre base Apidae. La donnée reste votre propriété et reste interopérable avec tout l'écosystème.",
+    q: "EventBridge remplace-t-il nos outils existants ?",
+    a: "Non. EventBridge vient alimenter vos outils : nous collectons et normalisons les événements de votre territoire, puis les publions automatiquement dans vos bases et sur vos canaux de diffusion. La donnée reste votre propriété et interopérable avec tout votre écosystème.",
   },
   {
     q: "D'où viennent les événements collectés ?",
@@ -9,7 +9,7 @@ const FAQS = [
   },
   {
     q: "Combien de temps pour déployer EventBridge sur notre territoire ?",
-    a: "Le déploiement standard prend 4 à 6 semaines : cadrage des sources, paramétrage des connecteurs Apidae/DATAtourisme, recette avec vos équipes, mise en production et formation.",
+    a: "Le déploiement standard prend 4 à 6 semaines : cadrage des sources, paramétrage des connecteurs DATAtourisme, recette avec vos équipes, mise en production et formation.",
   },
   {
     q: "La plateforme est-elle conforme RGPD ?",

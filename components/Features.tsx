@@ -6,7 +6,7 @@ const FEATURES: Array<{
   icon: ReactNode;
 }> = [
   {
-    title: "Connecteurs Apidae & DATAtourisme natifs",
+    title: "Connecteur DATAtourisme natif",
     description:
       "Synchronisation bidirectionnelle, sans configuration complexe et sans intermédiaire.",
     icon: (

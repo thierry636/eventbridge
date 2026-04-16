@@ -32,7 +32,7 @@ export function Hero() {
             EventBridge collecte automatiquement les événements culturels
             publiés sur votre territoire, les normalise au standard{" "}
             <strong className="font-semibold text-ink-900">
-              Apidae / DATAtourisme
+              DATAtourisme
             </strong>
             , et les diffuse en temps réel sur tous vos canaux.
           </p>
@@ -76,11 +76,11 @@ export function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-xs text-ink-500">
             <span className="inline-flex items-center gap-2">
               <Check />
-              Compatible Apidae
+              Compatible DATAtourisme
             </span>
             <span className="inline-flex items-center gap-2">
               <Check />
-              DATAtourisme
+              Temps réel
             </span>
             <span className="inline-flex items-center gap-2">
               <Check />

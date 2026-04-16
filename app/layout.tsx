@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     template: "%s · EventBridge",
   },
   description:
-    "EventBridge collecte automatiquement les événements culturels publiés sur votre territoire, les normalise au standard Apidae/DATAtourisme et les diffuse en temps réel sur tous vos canaux.",
+    "EventBridge collecte automatiquement les événements culturels publiés sur votre territoire, les normalise au standard DATAtourisme et les diffuse en temps réel sur tous vos canaux.",
   metadataBase: new URL("https://eventbridge.example.com"),
   openGraph: {
     title:
       "EventBridge — La plateforme événementielle des territoires",
     description:
-      "Collecte, normalisation et diffusion en temps réel des événements culturels de votre territoire. Compatible Apidae & DATAtourisme.",
+      "Collecte, normalisation et diffusion en temps réel des événements culturels de votre territoire. Compatible DATAtourisme.",
     type: "website",
     locale: "fr_FR",
     siteName: "EventBridge",
