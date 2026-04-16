@@ -28,7 +28,7 @@ const STEPS: Array<{
     number: "02",
     title: "Normalisation par IA",
     description:
-      "Extraction et structuration au format Apidae / DATAtourisme : dates, lieux, tarifs, accessibilité.",
+      "Extraction et structuration au format DATAtourisme : dates, lieux, tarifs, accessibilité.",
     accent: "bg-emerald-50 text-emerald-600",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -65,7 +65,7 @@ const STEPS: Array<{
     number: "04",
     title: "Diffusion multi-canaux",
     description:
-      "Publication automatique vers Apidae, votre site, vos partenaires et vos applications mobiles.",
+      "Publication automatique vers votre site, vos partenaires, vos applications mobiles et toutes vos plateformes de diffusion.",
     accent: "bg-brand-50 text-brand-600",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
