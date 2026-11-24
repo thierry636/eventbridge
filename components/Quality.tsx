@@ -29,7 +29,7 @@ export function Quality() {
             <span className="gradient-text-strong">La mise en forme fait le reste.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
-            Un SIT n&apos;accepte pas du texte libre. EventBridge transforme chaque annonce en
+            Un système d&apos;information touristique comme Apidae n&apos;accepte pas du texte libre. EventBridge transforme chaque annonce en
             données structurées, cohérentes et sans doublon — celles que vos partenaires et vos
             sites de diffusion attendent.
           </p>
@@ -40,7 +40,7 @@ export function Quality() {
           <article className="rounded-3xl border border-ink-100 bg-ink-50 p-5 sm:p-7">
             <h3 className="text-xl font-bold sm:text-2xl">Normalisation</h3>
             <p className="mt-1.5 text-sm text-ink-500">
-              Chaque champ est interprété, converti et aligné sur le référentiel de votre SIT.
+              Chaque champ est interprété, converti et aligné sur le référentiel de votre système d&apos;information touristique.
             </p>
             <div className="mt-6 overflow-hidden rounded-2xl border border-ink-100 bg-white">
               <div className="hidden grid-cols-[150px_1fr_1.3fr] gap-4 border-b border-ink-100 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-400 sm:grid">

@@ -17,7 +17,7 @@ const STEPS: { icon: ReactNode; title: string; text: string; tint: string }[] = 
   {
     icon: <IconLayers />,
     title: "Normalisation",
-    text: "Dates et horaires au format standard, adresses géocodées, catégories alignées sur le thésaurus du SIT.",
+    text: "Dates et horaires au format standard, adresses géocodées, catégories alignées sur le thésaurus de votre système d'information touristique.",
     tint: "bg-indigo-500/20 text-indigo-200",
   },
   {
@@ -35,13 +35,13 @@ const STEPS: { icon: ReactNode; title: string; text: string; tint: string }[] = 
   {
     icon: <IconEye />,
     title: "Relecture",
-    text: "Votre équipe valide en un clic ce qui part au SIT. Rien n'est publié sans contrôle si vous le souhaitez.",
+    text: "Votre équipe valide en un clic ce qui part dans votre base touristique. Rien n'est publié sans contrôle si vous le souhaitez.",
     tint: "bg-mint-500/20 text-mint-300",
   },
   {
     icon: <IconUpload />,
-    title: "Restitution SIT",
-    text: "Fiches créées et mises à jour directement dans votre SIT, ou exposées par API et export standardisé.",
+    title: "Restitution",
+    text: "Fiches créées et mises à jour directement dans votre système d'information touristique (Apidae, …), ou exposées par API et export standardisé.",
     tint: "bg-mint-500/20 text-mint-300",
   },
 ];
@@ -57,7 +57,7 @@ export function Pipeline() {
             <span className="h-px w-6 bg-indigo-200" />
           </span>
           <h2 className="section-title-dark">
-            Du contenu brut à la fiche SIT,{" "}
+            Du contenu brut à la fiche touristique,{" "}
             <span className="gradient-text">en sept étapes automatisées.</span>
           </h2>
           <p className="mt-5 text-base leading-relaxed text-white/65 sm:text-lg">

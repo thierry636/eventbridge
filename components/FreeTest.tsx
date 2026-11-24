@@ -7,7 +7,7 @@ import { IconArrow, IconCheck } from "./Icons";
 const STEPS = [
   { n: "1", t: "Vous indiquez vos sources", d: "Les sites dont vous aimeriez récupérer les événements : mairies, associations, salles…" },
   { n: "2", t: "Nous les passons dans EventBridge", d: "Captation réelle, normalisation et dédoublonnage sur vos propres pages." },
-  { n: "3", t: "On vous montre le résultat", d: "Démo personnalisée sur vos exemples : les fiches obtenues, prêtes pour votre SIT." },
+  { n: "3", t: "On vous montre le résultat", d: "Démo personnalisée sur vos exemples : les fiches obtenues, prêtes pour votre système d'information touristique." },
 ];
 
 type Status = "idle" | "sending" | "sent" | "error";
@@ -122,7 +122,7 @@ export function FreeTest() {
                   id="description"
                   name="description"
                   rows={3}
-                  placeholder="Ex. : Office de tourisme de…, nous voulons récupérer l'agenda de nos 40 communes pour alimenter notre SIT."
+                  placeholder="Ex. : Office de tourisme de…, nous voulons récupérer l'agenda de nos 40 communes pour alimenter Apidae."
                   className="field resize-y"
                   aria-invalid={Boolean(errors.description)}
                   aria-describedby={errors.description ? "description-err" : undefined}

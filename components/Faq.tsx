@@ -4,8 +4,8 @@ const FAQ = [
     a: "Tout ce qui est publié publiquement sur le web : sites de communes et d'intercommunalités, associations, salles et lieux culturels, billetteries, pages publiques de réseaux sociaux, ainsi que les programmes en PDF ou en image. Nous validons ensemble la liste lors du test gratuit.",
   },
   {
-    q: "Comment les événements arrivent-ils dans notre SIT ?",
-    a: "Les fiches sont mises en forme selon le référentiel de votre système d'information touristique (catégories, champs, formats), puis créées et mises à jour directement dans le SIT. Elles peuvent aussi être exposées par API ou par export standardisé pour vos autres outils.",
+    q: "Comment les événements arrivent-ils dans notre système d'information touristique ?",
+    a: "Les fiches sont mises en forme selon le référentiel de votre système d'information touristique (catégories, champs, formats), puis créées et mises à jour directement dans votre base (Apidae, …). Elles peuvent aussi être exposées par API ou par export standardisé pour vos autres outils.",
   },
   {
     q: "Comment fonctionne le dédoublonnage ?",
@@ -17,7 +17,7 @@ const FAQ = [
   },
   {
     q: "Gardons-nous la main sur ce qui est publié ?",
-    a: "Oui. Une étape de relecture permet de valider, corriger ou écarter chaque fiche avant son envoi au SIT. Vous choisissez le niveau d'automatisation qui vous convient, source par source.",
+    a: "Oui. Une étape de relecture permet de valider, corriger ou écarter chaque fiche avant son envoi dans votre système d'information touristique. Vous choisissez le niveau d'automatisation qui vous convient, source par source.",
   },
   {
     q: "Comment se déroule le test gratuit ?",

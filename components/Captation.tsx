@@ -18,7 +18,7 @@ const PAINS = [
   },
   {
     title: "Les mises à jour passent inaperçues",
-    text: "Un horaire décalé, une annulation : rien ne prévient votre équipe, et la fiche du SIT devient fausse.",
+    text: "Un horaire décalé, une annulation : rien ne prévient votre équipe, et la fiche publiée devient fausse.",
   },
   {
     title: "La ressaisie épuise les équipes",
@@ -41,7 +41,7 @@ export function Captation() {
             </h2>
             <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
               Sur un territoire, l&apos;offre événementielle réelle est bien plus riche que ce qui
-              arrive jusqu&apos;au SIT. Elle existe pourtant, en ligne : il suffit de savoir la capter
+              arrive jusqu&apos;au système d&apos;information touristique. Elle existe pourtant, en ligne : il suffit de savoir la capter
               à grande échelle — et de la remettre en forme.
             </p>
 

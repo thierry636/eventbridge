@@ -4,7 +4,7 @@ import { FluxBand } from "./FluxBand";
 const PROOF = [
   { v: "Des centaines", k: "de sources surveillées en continu" },
   { v: "1 fiche", k: "par événement, quel que soit le nombre d'annonces" },
-  { v: "0 ressaisie", k: "du web jusqu'à votre SIT" },
+  { v: "0 ressaisie", k: "du web jusqu'à votre système d'information touristique" },
 ];
 
 export function Hero() {
@@ -19,13 +19,13 @@ export function Hero() {
       <div className="container-x relative z-10 text-center">
         <span className="pill-dark animate-fade-up">
           <span className="live-dot" />
-          Du web aux SIT, sans ressaisie
+          Du web aux systèmes d&apos;information touristique
         </span>
 
         <h1 className="mx-auto mt-7 max-w-[1100px] text-[44px] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-[72px] lg:text-[96px]">
-          <span className="block animate-word-in">Tout l&apos;agenda du web.</span>
+          <span className="block animate-word-in">Le flux événementiel du web,</span>
           <span className="mt-2 block sm:mt-3">
-            {["Capté.", "Normalisé.", "Dédoublonné."].map((w, i) => (
+            {["capté,", "analysé,", "restitué."].map((w, i) => (
               <span
                 key={w}
                 className="hero-gradient inline-block animate-word-in pr-[0.18em] last:pr-0"
@@ -42,9 +42,10 @@ export function Hero() {
           style={{ animationDelay: "800ms" }}
         >
           Sites de communes, associations, salles, billetteries, réseaux sociaux : EventBridge
-          avale le flux événementiel de tout votre territoire et le restitue en{" "}
-          <strong className="font-semibold text-white">une seule base propre</strong>, prête à
-          entrer dans votre SIT.
+          capte en continu le flux événementiel de votre territoire, l&apos;analyse avec l&apos;IA
+          et le restitue en{" "}
+          <strong className="font-semibold text-white">une seule base propre</strong>, directement
+          exploitable par votre système d&apos;information touristique (Apidae, …).
         </p>
 
         <div
