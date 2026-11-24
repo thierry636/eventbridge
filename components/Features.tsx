@@ -42,7 +42,7 @@ export function Features() {
       <div className="wrap">
         <div className="mx-auto max-w-3xl text-center">
           <p className="kicker">Fonctionnement</p>
-          <h2 className="h-section mt-3">Une chaîne complète, de la page web à la fiche SIT.</h2>
+          <h2 className="h-section mt-3">Une chaîne complète, de la page web à la fiche touristique.</h2>
           <p className="lede mx-auto mt-5 max-w-[40rem]">
             Captation, extraction, normalisation, dédoublonnage, suivi des changements, relecture
             et restitution : chaque événement suit la même chaîne de traitement, automatisée de
@@ -104,8 +104,8 @@ export function Features() {
           <Cell
             className="lg:col-span-3"
             icon={<ILayers width={17} height={17} />}
-            title="Normalisation au format SIT"
-            text="Dates au format standard, adresses géocodées, catégories alignées sur le référentiel de votre SIT."
+            title="Normalisation au format touristique"
+            text="Dates au format standard, adresses géocodées, catégories alignées sur le référentiel de votre système d'information touristique."
           >
             <dl className="overflow-hidden rounded-lg border border-line bg-white text-[13px]">
               {[
@@ -179,7 +179,7 @@ export function Features() {
             className="lg:col-span-2"
             icon={<IEye width={17} height={17} />}
             title="Relecture en un clic"
-            text="Votre équipe garde la main : valider, corriger ou écarter avant l'envoi au SIT."
+            text="Votre équipe garde la main : valider, corriger ou écarter avant l'envoi dans votre base touristique."
           >
             <div className="rounded-lg border border-line bg-white p-4">
               <div className="text-[13px] font-medium text-ink">Rando nocturne des crêtes</div>
@@ -196,8 +196,8 @@ export function Features() {
           <Cell
             className="lg:col-span-2"
             icon={<IUpload width={17} height={17} />}
-            title="Restitution dans votre SIT"
-            text="Fiches créées et mises à jour directement dans le SIT, ou exposées par API."
+            title="Restitution dans votre base"
+            text="Fiches créées et mises à jour directement dans votre système d'information touristique (Apidae, …), ou exposées par API."
           >
             <ul className="space-y-1.5 font-mono text-[11.5px]">
               {[

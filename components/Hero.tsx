@@ -1,7 +1,7 @@
 import { AppMockup } from "./AppMockup";
 import { IArrow, ICheck } from "./Icons";
 
-const PILLARS = ["Captation à grande échelle", "Normalisation au format SIT", "Dédoublonnage multi-sources", "Détection des changements"];
+const PILLARS = ["Captation à grande échelle", "Normalisation des données", "Dédoublonnage multi-sources", "Détection des changements"];
 
 export function Hero() {
   return (
@@ -38,18 +38,17 @@ export function Hero() {
           className="reveal mx-auto mt-7 max-w-[20ch] text-[40px] font-semibold leading-[1.04] tracking-[-0.045em] !text-white sm:text-[56px] lg:text-[66px]"
           style={{ animationDelay: "80ms" }}
         >
-          Des milliers d&apos;événements épars.{" "}
-          <span className="text-white/55">Une seule base propre, prête pour votre SIT.</span>
+          Le flux événementiel du web,{" "}
+          <span className="text-white/55">capté, analysé, restitué.</span>
         </h1>
 
         <p
           className="reveal mx-auto mt-6 max-w-[42rem] text-[17px] leading-[1.6] text-white/65 sm:text-[19px]"
           style={{ animationDelay: "160ms" }}
         >
-          EventBridge capte en continu les événements publiés sur le web — communes, associations,
-          salles, billetteries, réseaux sociaux — puis les normalise, les dédoublonne et les
-          restitue en fiches structurées, directement intégrables dans votre système
-          d&apos;information touristique.
+          EventBridge capte en continu les événements publiés par les communes, associations,
+          salles et billetteries, les analyse avec l&apos;IA, les normalise, les dédoublonne et
+          les restitue en fiches prêtes pour votre système d&apos;information touristique (Apidae, …).
         </p>
 
         <div className="reveal mt-9 flex flex-col justify-center gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>

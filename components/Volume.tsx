@@ -12,7 +12,7 @@ const FACTS = [
   { t: "Des centaines de sources", d: "par territoire, ajoutées en quelques minutes." },
   { t: "Passages réguliers", d: "chaque source est revisitée pour suivre les nouveautés." },
   { t: "Tous les formats", d: "pages HTML, PDF, images et publications sociales." },
-  { t: "Zéro ressaisie", d: "du web jusqu'à la fiche publiée dans votre SIT." },
+  { t: "Zéro ressaisie", d: "du web jusqu'à la fiche publiée dans votre base touristique." },
 ];
 
 export function Volume() {
@@ -33,7 +33,7 @@ export function Volume() {
           </div>
           <p className="max-w-[32rem] text-[17px] leading-[1.6] text-white/60">
             Chaque source tire ses annonces, souvent les mêmes, dans des formats différents.
-            EventBridge les fait converger : un événement, une fiche, prête pour votre SIT.
+            EventBridge les fait converger : un événement, une fiche, prête pour votre système d&apos;information touristique.
           </p>
         </div>
 
@@ -41,8 +41,8 @@ export function Volume() {
           <Threads />
           <figure className="relative mt-6 rounded-2xl bg-white p-6 text-body shadow-float lg:mt-0">
             <figcaption className="flex items-center justify-between">
-              <span className="text-[12.5px] text-muted">Fiche livrée au SIT</span>
-              <span className="badge bg-sage/10 text-sage">Prêt pour le SIT</span>
+              <span className="text-[12.5px] text-muted">Fiche livrée à Apidae</span>
+              <span className="badge bg-sage/10 text-sage">Prêt pour Apidae</span>
             </figcaption>
             <p className="mt-2 text-[22px] font-semibold tracking-[-0.03em] text-ink">Fête de la musique</p>
             <dl className="mt-4 divide-y divide-line border-y border-line text-[13.5px]">

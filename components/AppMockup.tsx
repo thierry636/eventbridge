@@ -8,19 +8,19 @@ const NAV = [
   { icon: IMerge, label: "Doublons", count: "1 096" },
   { icon: IBolt, label: "Changements", count: "37" },
   { icon: IEye, label: "À relire", count: "18" },
-  { icon: IUpload, label: "Export SIT", count: "" },
+  { icon: IUpload, label: "Export Apidae", count: "" },
 ];
 
 const KPIS = [
   { k: "Sources surveillées", v: "248", d: "+12 ce mois" },
   { k: "Événements captés", v: "3 412", d: "+184 cette semaine" },
   { k: "Doublons fusionnés", v: "1 096", d: "32 % du flux brut" },
-  { k: "Fiches prêtes pour le SIT", v: "2 187", d: "Synchronisées" },
+  { k: "Fiches prêtes pour Apidae", v: "2 187", d: "Synchronisées" },
 ];
 
 type Status = "ready" | "merged" | "update" | "review";
 const STATUS: Record<Status, { label: string; cls: string; dot: string }> = {
-  ready: { label: "Prêt pour le SIT", cls: "bg-sage/10 text-sage", dot: "bg-sage" },
+  ready: { label: "Prêt pour Apidae", cls: "bg-sage/10 text-sage", dot: "bg-sage" },
   merged: { label: "3 sources fusionnées", cls: "bg-iris-soft text-iris", dot: "bg-iris" },
   update: { label: "Horaire modifié", cls: "bg-coral/10 text-coral", dot: "bg-coral" },
   review: { label: "À relire", cls: "bg-amber-500/10 text-amber-700", dot: "bg-amber-500" },
@@ -77,7 +77,7 @@ export function AppMockup() {
           </ul>
           <div className="mt-5 rounded-lg border border-line bg-white p-3">
             <div className="flex items-center gap-1.5 text-[11px] font-medium text-ink">
-              <IDatabase width={13} height={13} /> SIT connecté
+              <IDatabase width={13} height={13} /> Apidae connecté
             </div>
             <div className="mt-1 text-[10.5px] text-muted">Dernière synchro il y a 4 min</div>
             <div className="mt-2 h-1 overflow-hidden rounded-full bg-line">
@@ -95,7 +95,7 @@ export function AppMockup() {
             </div>
             <div className="flex items-center gap-2">
               <span className="hidden rounded-md border border-line px-2.5 py-1 text-[11.5px] text-muted sm:inline">Filtrer</span>
-              <span className="rounded-md bg-ink px-2.5 py-1 text-[11.5px] font-medium text-white">Envoyer au SIT</span>
+              <span className="rounded-md bg-ink px-2.5 py-1 text-[11.5px] font-medium text-white">Envoyer vers Apidae</span>
             </div>
           </div>
 

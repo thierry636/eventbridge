@@ -10,7 +10,7 @@ import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: { absolute: "EventBridge — Le flux événementiel du web, prêt pour votre SIT" },
+  title: { absolute: "EventBridge — Le flux événementiel du web, capté, analysé, restitué" },
   alternates: { canonical: "/eventbridge" },
   openGraph: { url: "/eventbridge" },
 };

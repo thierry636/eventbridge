@@ -14,7 +14,7 @@ const POINTS = [
   {
     icon: IBolt,
     t: "Les mises à jour passent inaperçues",
-    d: "Un horaire décalé, une annulation : rien ne prévient votre équipe, et la fiche du SIT devient fausse.",
+    d: "Un horaire décalé, une annulation : rien ne prévient votre équipe, et la fiche publiée devient fausse.",
   },
   {
     icon: IEye,
@@ -23,7 +23,7 @@ const POINTS = [
   },
 ];
 
-const FORMATS = ["Référentiel de votre SIT", "Ontologie DATAtourisme", "API REST", "JSON structuré", "Géocodage des lieux"];
+const FORMATS = ["Apidae", "Ontologie DATAtourisme", "API REST", "JSON structuré", "Géocodage des lieux"];
 
 export function Problem() {
   return (
@@ -44,7 +44,7 @@ export function Problem() {
             <h2 className="h-section mt-3 max-w-[16ch]">Le web publie plus d&apos;événements que vos équipes ne peuvent en saisir.</h2>
             <p className="lede mt-5 max-w-[30rem]">
               Sur un territoire, l&apos;offre événementielle réelle est bien plus riche que ce qui
-              arrive jusqu&apos;au SIT. Elle existe pourtant, en ligne : il suffit de la capter à
+              arrive jusqu&apos;au système d&apos;information touristique. Elle existe pourtant, en ligne : il suffit de la capter à
               grande échelle et de la remettre en forme.
             </p>
           </div>

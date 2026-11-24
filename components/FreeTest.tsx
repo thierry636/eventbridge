@@ -109,7 +109,7 @@ export function FreeTest() {
                   id="description"
                   name="description"
                   rows={3}
-                  placeholder="Par exemple : nous voulons récupérer l'agenda de nos 40 communes pour alimenter notre SIT."
+                  placeholder="Par exemple : nous voulons récupérer l'agenda de nos 40 communes pour alimenter Apidae."
                   className="field resize-y"
                   aria-invalid={Boolean(errors.description)}
                   aria-describedby={errors.description ? "description-err" : undefined}
