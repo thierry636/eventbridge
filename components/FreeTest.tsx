@@ -39,7 +39,7 @@ export function FreeTest() {
       const res = await fetch("/api/test-gratuit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...lead, sites: sitesRaw, company_website: get("company_website") }),
+        body: JSON.stringify({ ...lead, sites: sitesRaw, eb_hp_x7: get("eb_hp_x7") }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; errors?: LeadErrors; error?: string };
       if (res.ok && data.ok) {
@@ -140,11 +140,12 @@ export function FreeTest() {
                 </div>
               </div>
 
-              {/* Pot de miel anti-robots */}
+              {/* Pot de miel anti-robots : nom et libellé neutres pour que la
+                  saisie automatique des navigateurs ne le remplisse jamais. */}
               <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
                 <label>
-                  Site de votre société
-                  <input type="text" name="company_website" tabIndex={-1} autoComplete="off" />
+                  Ne pas remplir
+                  <input type="text" name="eb_hp_x7" tabIndex={-1} autoComplete="off" data-lpignore="true" data-1p-ignore />
                 </label>
               </div>
 
