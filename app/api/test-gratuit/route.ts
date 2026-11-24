@@ -7,7 +7,8 @@ import { parseSites, validateLead, type LeadInput } from "@/lib/lead";
  * Canaux de livraison (cumulables), configurés par variables d'environnement :
  *  - LEAD_WEBHOOK_URL               → POST JSON (Make, n8n, Zapier, Slack…)
  *  - RESEND_API_KEY + LEAD_NOTIFY_EMAIL (+ LEAD_FROM_EMAIL) → email via Resend
- * Sans canal configuré, la demande est écrite dans les logs du serveur.
+ * Sans canal configuré, la demande est écrite dans les logs du serveur et,
+ * en production, le formulaire affiche une erreur au lieu d'une fausse confirmation.
  */
 /**
  * Diagnostic : GET /api/test-gratuit indique quels canaux sont configurés,
@@ -65,7 +66,14 @@ export async function POST(request: Request) {
   if (resendKey && notifyTo) deliveries.push(sendEmail(resendKey, notifyTo, payload));
 
   if (deliveries.length === 0) {
-    console.warn("[test-gratuit] Aucun canal configuré — demande reçue :", JSON.stringify(payload));
+    console.error("[test-gratuit] Aucun canal configuré — demande non transmise :", JSON.stringify(payload));
+    // En production, on ne confirme jamais une demande qui n'arrivera nulle part.
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { ok: false, error: "Envoi impossible pour le moment. Écrivez-nous directement ou réessayez plus tard." },
+        { status: 503 },
+      );
+    }
     return NextResponse.json({ ok: true });
   }
 

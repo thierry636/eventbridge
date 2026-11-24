@@ -84,7 +84,7 @@ export function FreeTest() {
             <div className="flex min-h-[420px] flex-col justify-center" role="status">
               <p className="text-[30px] font-semibold tracking-[-0.03em]">Demande envoyée.</p>
               <p className="mt-4 max-w-[26rem] text-white/60">
-                Nous traitons vos {sites.length} source{sites.length > 1 ? "s" : ""} et vous
+                Nous traitons {sites.length > 1 ? `vos ${sites.length} sources` : "votre source"} et vous
                 recontactons rapidement pour convenir d&apos;une démonstration sur vos exemples.
               </p>
             </div>
