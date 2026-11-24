@@ -36,10 +36,11 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Requête invalide." }, { status: 400 });
   }
 
-  // Pot de miel : un humain ne remplit jamais ce champ caché.
-  if (typeof body.company_website === "string" && body.company_website.trim() !== "") {
-    return NextResponse.json({ ok: true });
-  }
+  // Pot de miel : un humain ne remplit normalement pas ce champ caché. On ne jette
+  // jamais la demande pour autant (une saisie automatique peut le remplir) :
+  // elle est transmise, marquée comme suspecte.
+  const suspect = typeof body.eb_hp_x7 === "string" && body.eb_hp_x7.trim() !== "";
+  if (suspect) console.warn("[test-gratuit] Champ anti-robots rempli, demande marquée suspecte.");
 
   const str = (v: unknown) => (typeof v === "string" ? v.trim() : "");
   const lead: LeadInput = {
@@ -55,7 +56,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 422 });
   }
 
-  const payload = { ...lead, receivedAt: new Date().toISOString(), source: "eventbridge-landing" };
+  const payload = { ...lead, suspect, receivedAt: new Date().toISOString(), source: "eventbridge-landing" };
   const deliveries: Promise<void>[] = [];
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
@@ -91,7 +92,7 @@ export async function POST(request: Request) {
   return NextResponse.json({ ok: true });
 }
 
-type Payload = LeadInput & { receivedAt: string; source: string };
+type Payload = LeadInput & { suspect: boolean; receivedAt: string; source: string };
 
 async function postWebhook(url: string, payload: Payload) {
   const res = await fetch(url, {
@@ -121,7 +122,7 @@ async function sendEmail(apiKey: string, to: string, p: Payload) {
       from: process.env.LEAD_FROM_EMAIL ?? "EventBridge <onboarding@resend.dev>",
       to: to.split(",").map((s) => s.trim()),
       reply_to: p.email,
-      subject: `Test gratuit — ${p.firstName} ${p.lastName} (${p.sites.length} site${p.sites.length > 1 ? "s" : ""})`,
+      subject: `${p.suspect ? "[Suspect robot] " : ""}Test gratuit — ${p.firstName} ${p.lastName} (${p.sites.length} site${p.sites.length > 1 ? "s" : ""})`,
       html,
     }),
   });
