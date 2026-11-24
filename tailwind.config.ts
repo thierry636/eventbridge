@@ -8,56 +8,61 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#EFF6FF",
-          100: "#DBEAFE",
-          200: "#BFDBFE",
-          500: "#3B82F6",
-          600: "#2563EB",
-          700: "#1D4ED8",
-          800: "#1E40AF",
+        // Identité partagée avec l'application : nuit, indigo, violet, corail.
+        night: {
+          950: "#07051A",
+          900: "#0E0B26",
+          800: "#161236",
+          700: "#211C4A",
+          600: "#2E2862",
+        },
+        indigo: {
+          50: "#F1EFFF",
+          100: "#E4E0FF",
+          200: "#C9B8FF",
+          400: "#7D6CFF",
+          500: "#5B4BF5",
+          600: "#4A3AE0",
+          700: "#3A2DB8",
+        },
+        violet: {
+          400: "#B27DFF",
+          500: "#9B4DFF",
+        },
+        coral: {
+          200: "#FFB4AA",
+          400: "#FF8A7D",
+          500: "#FF6B5B",
+        },
+        mint: {
+          300: "#5EF0C0",
+          500: "#12B886",
         },
         ink: {
-          900: "#0F172A",
-          700: "#334155",
-          500: "#64748B",
-          400: "#94A3B8",
-          200: "#E2E8F0",
-          100: "#F1F5F9",
-          50: "#F8FAFC",
-        },
-        accent: {
-          green: "#10B981",
-          orange: "#F59E0B",
+          900: "#14112E",
+          700: "#3B3757",
+          500: "#6B6787",
+          400: "#9A97B3",
+          200: "#E4E2EF",
+          100: "#F0EFF6",
+          50: "#F8F7FC",
         },
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          "sans-serif",
-        ],
+        sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-sans)", "ui-sans-serif", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
       },
       boxShadow: {
-        soft: "0 10px 30px -12px rgba(15, 23, 42, 0.12)",
-        card: "0 20px 50px -20px rgba(37, 99, 235, 0.25)",
-      },
-      backgroundImage: {
-        "hero-gradient":
-          "linear-gradient(180deg, #F8FAFC 0%, #EFF6FF 60%, #FFFFFF 100%)",
-        "grid-faint":
-          "linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px)",
+        soft: "0 10px 30px -12px rgba(20, 17, 46, 0.14)",
+        card: "0 24px 60px -24px rgba(91, 75, 245, 0.35)",
+        glass: "0 20px 50px -20px rgba(0, 0, 0, 0.55)",
       },
       animation: {
-        "ping-slow": "ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite",
-        float: "float 6s ease-in-out infinite",
-        "fade-up": "fadeUp 0.8s ease-out both",
+        float: "float 7s ease-in-out infinite",
+        "fade-up": "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
+        flow: "flow 3.2s linear infinite",
+        marquee: "marquee 40s linear infinite",
       },
       keyframes: {
         float: {
@@ -65,8 +70,16 @@ const config: Config = {
           "50%": { transform: "translateY(-8px)" },
         },
         fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "0%": { opacity: "0", transform: "translateY(14px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        flow: {
+          "0%": { strokeDashoffset: "40" },
+          "100%": { strokeDashoffset: "0" },
+        },
+        marquee: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
         },
       },
     },

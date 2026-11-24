@@ -1,99 +1,59 @@
-const FAQS = [
+const FAQ = [
   {
-    q: "EventBridge remplace-t-il nos outils existants ?",
-    a: "Non. EventBridge vient alimenter vos outils : nous collectons et normalisons les événements de votre territoire, puis les publions automatiquement dans vos bases et sur vos canaux de diffusion. La donnée reste votre propriété et interopérable avec tout votre écosystème.",
+    q: "Quelles sources EventBridge sait-il capter ?",
+    a: "Tout ce qui est publié publiquement sur le web : sites de communes et d'intercommunalités, associations, salles et lieux culturels, billetteries, pages publiques de réseaux sociaux, ainsi que les programmes en PDF ou en image. Nous validons ensemble la liste lors du test gratuit.",
   },
   {
-    q: "D'où viennent les événements collectés ?",
-    a: "Sites web des acteurs culturels, agendas municipaux, billetteries (Mapado, Weezevent, etc.), plateformes de réservation, réseaux sociaux et flux RSS. Nous configurons ensemble les sources prioritaires de votre territoire.",
+    q: "Comment les événements arrivent-ils dans notre SIT ?",
+    a: "Les fiches sont mises en forme selon le référentiel de votre système d'information touristique (catégories, champs, formats), puis créées et mises à jour directement dans le SIT. Elles peuvent aussi être exposées par API ou par export standardisé pour vos autres outils.",
   },
   {
-    q: "Combien de temps pour déployer EventBridge sur notre territoire ?",
-    a: "Le déploiement standard prend 4 à 6 semaines : cadrage des sources, paramétrage des connecteurs DATAtourisme, recette avec vos équipes, mise en production et formation.",
+    q: "Comment fonctionne le dédoublonnage ?",
+    a: "EventBridge compare les événements par le sens — dates, lieu, organisateur, contenu — et pas seulement par le titre. Un événement annoncé sur trois sources devient une fiche unique, qui réunit les meilleures informations de chacune en conservant leur provenance.",
   },
   {
-    q: "La plateforme est-elle conforme RGPD ?",
-    a: "Oui. Données hébergées en France chez un hébergeur SecNumCloud, traitements documentés, registre des activités fourni, et accompagnement de votre DPO si nécessaire.",
+    q: "Que se passe-t-il si un événement change ou est annulé ?",
+    a: "Les sources sont surveillées en continu. Une modification d'horaire, de tarif ou une annulation est détectée, présentée à votre équipe avec le détail du changement, puis répercutée sur la fiche.",
   },
   {
-    q: "Peut-on conserver une étape de validation humaine ?",
-    a: "Bien sûr. EventBridge propose un mode 'modération assistée' où vos équipes valident en un clic les événements détectés, avec suggestions de l'IA pour gagner du temps.",
+    q: "Gardons-nous la main sur ce qui est publié ?",
+    a: "Oui. Une étape de relecture permet de valider, corriger ou écarter chaque fiche avant son envoi au SIT. Vous choisissez le niveau d'automatisation qui vous convient, source par source.",
   },
   {
-    q: "Quel lien avec EvenTrack ?",
-    a: "EventBridge est édité par EvenTrack et s'appuie sur le moteur de collecte et d'IA développé pour la plateforme grand public. EventBridge est la déclinaison B2B dédiée aux territoires.",
+    q: "Comment se déroule le test gratuit ?",
+    a: "Vous nous indiquez quelques sites représentatifs de votre territoire via le formulaire. Nous les traitons dans EventBridge, puis nous vous recontactons pour une démonstration sur vos propres événements : ce qui a été capté, normalisé et dédoublonné. Sans engagement.",
   },
 ];
 
 export function Faq() {
   return (
-    <section id="faq" className="py-20 sm:py-28">
-      <div className="container-x">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <span className="section-eyebrow">
-              <span className="h-px w-6 bg-brand-600" />
-              FAQ
-            </span>
-            <h2 className="section-title">
-              Vos questions, nos réponses.
-            </h2>
-            <p className="mt-4 text-base text-ink-500">
-              Vous ne trouvez pas votre réponse ? Notre équipe est à votre
-              disposition.
-            </p>
-            <a href="#demo" className="btn-secondary mt-6">
-              Nous contacter
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 14 14"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2 7h10M8 3l4 4-4 4"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </a>
-          </div>
-
-          <div className="divide-y divide-ink-100 rounded-2xl border border-ink-100 bg-white">
-            {FAQS.map((item, i) => (
-              <details
-                key={item.q}
-                className="group p-5 sm:p-6"
-                open={i === 0}
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-ink-900 marker:hidden [&::-webkit-details-marker]:hidden">
-                  <span>{item.q}</span>
-                  <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink-200 text-ink-700 transition group-open:rotate-45 group-open:border-brand-600 group-open:text-brand-600">
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M7 2v10M2 7h10"
-                        stroke="currentColor"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-500">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
+    <section id="faq" className="scroll-mt-16 bg-white py-20 sm:py-28">
+      <div className="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+        <div>
+          <span className="eyebrow">
+            <span className="h-px w-6 bg-indigo-500" />
+            FAQ
+          </span>
+          <h2 className="section-title">Vos questions, nos réponses.</h2>
+          <p className="mt-5 text-base leading-relaxed text-ink-500">
+            Une question qui n&apos;est pas ici ? Décrivez-la dans le formulaire de test, nous y
+            répondrons lors de la démo.
+          </p>
+        </div>
+        <div className="divide-y divide-ink-100 border-y border-ink-100">
+          {FAQ.map((item) => (
+            <details key={item.q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left text-base font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+                {item.q}
+                <span className="inline-flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink-200 text-ink-500 transition group-open:rotate-45 group-open:border-indigo-500 group-open:text-indigo-500">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </summary>
+              <p className="mt-3 pr-10 text-sm leading-relaxed text-ink-500">{item.a}</p>
+            </details>
+          ))}
         </div>
       </div>
     </section>
