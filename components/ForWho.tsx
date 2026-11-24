@@ -1,51 +1,35 @@
+import { IBuilding, IDatabase, IMap, IGlobe } from "./Icons";
+
 const AUDIENCES = [
-  {
-    title: "Offices de tourisme",
-    text: "Une offre événementielle exhaustive sur votre destination, sans y passer vos journées.",
-  },
-  {
-    title: "Agences départementales & CRT",
-    text: "Un flux homogène à l'échelle de tout un département ou d'une région, quel que soit le nombre de sources.",
-  },
-  {
-    title: "Intercommunalités & collectivités",
-    text: "Valorisez l'agenda de toutes vos communes, y compris celles qui n'alimentent jamais votre base touristique.",
-  },
-  {
-    title: "Gestionnaires de bases touristiques (Apidae, …)",
-    text: "Un apport de données qualifiées, normalisées et dédoublonnées, prêtes à entrer dans votre base.",
-  },
+  { icon: IGlobe, t: "Offices de tourisme", d: "Une offre événementielle exhaustive sur votre destination, sans y passer vos journées." },
+  { icon: IMap, t: "Agences départementales et CRT", d: "Un flux homogène à l'échelle d'un département ou d'une région, quel que soit le nombre de sources." },
+  { icon: IBuilding, t: "Intercommunalités et collectivités", d: "L'agenda de toutes vos communes valorisé, y compris celles qui n'alimentent jamais votre base touristique." },
+  { icon: IDatabase, t: "Gestionnaires de bases touristiques (Apidae, …)", d: "Un apport de données qualifiées, normalisées et dédoublonnées, prêtes à entrer dans votre base." },
 ];
 
 export function ForWho() {
   return (
-    <section id="pour-qui" className="scroll-mt-16 bg-ink-50 py-20 sm:py-28">
-      <div className="container-x">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-          <div>
-            <span className="eyebrow">
-              <span className="h-px w-6 bg-indigo-500" />
-              Pour qui ?
-            </span>
-            <h2 className="section-title">Pensé pour ceux qui alimentent les systèmes d&apos;information touristique.</h2>
-            <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
-              EventBridge s&apos;adresse aux structures qui doivent garantir une offre événementielle
-              complète, fiable et à jour — sur un territoire, petit ou grand.
-            </p>
-            <a href="#test-gratuit" className="btn-primary mt-8">
-              Tester sur mon territoire
-            </a>
-          </div>
-          <ul className="grid gap-4 sm:grid-cols-2">
-            {AUDIENCES.map((a, i) => (
-              <li key={a.title} className="rounded-2xl border border-ink-100 bg-white p-6 shadow-soft">
-                <span className="font-mono text-xs text-indigo-500">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-3 text-lg font-semibold tracking-[-0.02em]">{a.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-500">{a.text}</p>
-              </li>
-            ))}
-          </ul>
+    <section id="pour-qui" className="scroll-mt-20 bg-white py-20 sm:py-28">
+      <div className="wrap">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="kicker">Pour qui</p>
+          <h2 className="h-section mx-auto mt-3 max-w-[22ch]">Pensé pour ceux qui alimentent les systèmes d&apos;information touristique.</h2>
+          <p className="lede mx-auto mt-5 max-w-[38rem]">
+            Les structures qui doivent garantir une offre événementielle complète, fiable et à
+            jour, sur un territoire petit ou grand.
+          </p>
         </div>
+        <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {AUDIENCES.map(({ icon: Icon, t, d }) => (
+            <li key={t} className="panel p-6">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-iris text-white">
+                <Icon width={18} height={18} />
+              </span>
+              <h3 className="mt-5 text-[17px] font-semibold tracking-[-0.02em]">{t}</h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted">{d}</p>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

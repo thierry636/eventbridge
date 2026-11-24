@@ -27,31 +27,26 @@ const FAQ = [
 
 export function Faq() {
   return (
-    <section id="faq" className="scroll-mt-16 bg-white py-20 sm:py-28">
-      <div className="container-x grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+    <section id="faq" className="scroll-mt-20 bg-white py-24 sm:py-32">
+      <div className="wrap grid gap-12 lg:grid-cols-[5fr_6fr] lg:gap-24">
         <div>
-          <span className="eyebrow">
-            <span className="h-px w-6 bg-indigo-500" />
-            FAQ
-          </span>
-          <h2 className="section-title">Vos questions, nos réponses.</h2>
-          <p className="mt-5 text-base leading-relaxed text-ink-500">
-            Une question qui n&apos;est pas ici ? Décrivez-la dans le formulaire de test, nous y
-            répondrons lors de la démo.
+          <p className="kicker">FAQ</p>
+          <h2 className="h-section mt-3">Vos questions, nos réponses.</h2>
+          <p className="lede mt-6 max-w-[26rem]">
+            Une autre question ? Posez-la dans le formulaire de test, nous y répondrons pendant
+            la démonstration.
           </p>
         </div>
-        <div className="divide-y divide-ink-100 border-y border-ink-100">
+        <div className="border-t border-line">
           {FAQ.map((item) => (
-            <details key={item.q} className="group py-5">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-left text-base font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+            <details key={item.q} className="group border-b border-line">
+              <summary className="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-[17px] font-medium text-ink [&::-webkit-details-marker]:hidden">
                 {item.q}
-                <span className="inline-flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink-200 text-ink-500 transition group-open:rotate-45 group-open:border-indigo-500 group-open:text-indigo-500">
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                    <path d="M6 1v10M1 6h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
-                  </svg>
-                </span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" className="mt-1.5 flex-none text-muted transition-transform duration-300 group-open:rotate-45">
+                  <path d="M7 1v12M1 7h12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                </svg>
               </summary>
-              <p className="mt-3 pr-10 text-sm leading-relaxed text-ink-500">{item.a}</p>
+              <p className="-mt-2 max-w-[38rem] pb-6 text-muted">{item.a}</p>
             </details>
           ))}
         </div>

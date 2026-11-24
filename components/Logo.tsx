@@ -1,27 +1,13 @@
-import { useId, type SVGProps } from "react";
+import type { SVGProps } from "react";
 
-/** Le monogramme EventBridge : un pont qui relie le web (à gauche) au système d'information touristique (à droite). */
+/** Monogramme : une arche de pont posée sur son tablier — le web relié au système d'information touristique. */
 export function LogoMark(props: SVGProps<SVGSVGElement>) {
-  const id = useId();
   return (
-    <svg viewBox="0 0 40 40" fill="none" aria-hidden="true" {...props}>
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#5B4BF5" />
-          <stop offset="0.6" stopColor="#9B4DFF" />
-          <stop offset="1" stopColor="#FF6B5B" />
-        </linearGradient>
-      </defs>
-      <rect width="40" height="40" rx="12" fill={`url(#${id})`} />
-      <path d="M7 27c4-9 9-13 13-13s9 4 13 13" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-      <path d="M6 27h28" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" />
-      <path
-        d="M14 18.6V27M20 14v13M26 18.6V27"
-        stroke="#fff"
-        strokeWidth="2"
-        strokeLinecap="round"
-        opacity=".75"
-      />
+    <svg viewBox="0 0 32 32" fill="none" aria-hidden="true" {...props}>
+      <rect width="32" height="32" rx="8" fill="#4C43C9" />
+      <path d="M6 21.5c3-6.5 6.5-9.5 10-9.5s7 3 10 9.5" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M5 21.5h22" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M11 16.2v5.3M16 12v9.5M21 16.2v5.3" stroke="#fff" strokeWidth="1.3" strokeLinecap="round" opacity=".7" />
     </svg>
   );
 }
@@ -29,14 +15,9 @@ export function LogoMark(props: SVGProps<SVGSVGElement>) {
 export function Logo({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <span className="flex items-center gap-2.5">
-      <LogoMark className="h-9 w-9" />
-      <span
-        className={`font-display text-[20px] font-bold tracking-[-0.03em] ${
-          tone === "light" ? "text-white" : "text-ink-900"
-        }`}
-      >
-        Event
-        <span className={tone === "light" ? "gradient-text" : "gradient-text-strong"}>Bridge</span>
+      <LogoMark className="h-8 w-8" />
+      <span className={`text-[17px] font-semibold tracking-[-0.01em] ${tone === "light" ? "text-white" : "text-ink"}`}>
+        EventBridge
       </span>
     </span>
   );
