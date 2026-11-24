@@ -1,14 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Newsreader } from "next/font/google";
 import "./globals.css";
 
-const display = Bricolage_Grotesque({
+const serif = Newsreader({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-serif",
   display: "swap",
+  style: ["normal", "italic"],
 });
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
-const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 const DESCRIPTION =
   "EventBridge capte en masse les événements publiés sur le web, les normalise, les dédoublonne et les restitue en fiches prêtes à intégrer dans votre système d'information touristique.";
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0E0B26",
+  themeColor: "#16142B",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+    <html lang="fr" className={`${serif.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   );

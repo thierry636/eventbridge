@@ -1,81 +1,66 @@
-import { IconArrow } from "./Icons";
-import { FluxBand } from "./FluxBand";
+import { Threads } from "./Threads";
 
-const PROOF = [
-  { v: "Des centaines", k: "de sources surveillées en continu" },
-  { v: "1 fiche", k: "par événement, quel que soit le nombre d'annonces" },
-  { v: "0 ressaisie", k: "du web jusqu'à votre SIT" },
+const FIELDS = [
+  ["Date", "21 juin 2026, de 18 h à minuit"],
+  ["Lieu", "Place du Marché, géolocalisée"],
+  ["Catégorie", "Manifestation culturelle, musique"],
+  ["Tarif", "Gratuit"],
+  ["Organisateur", "Comité des fêtes"],
 ];
 
 export function Hero() {
   return (
-    <section className="night-bg grid-overlay relative overflow-hidden pb-16 pt-28 text-white sm:pb-24 sm:pt-32">
-      {/* halo central derrière le titre */}
+    <section className="relative overflow-hidden bg-ink pb-16 pt-32 text-white sm:pb-24 sm:pt-36">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-24 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-violet-500/25 blur-[120px]"
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(60% 50% at 75% 55%, rgba(76,67,201,0.28), transparent 70%)" }}
       />
 
-      <div className="container-x relative z-10 text-center">
-        <span className="pill-dark animate-fade-up">
-          <span className="live-dot" />
-          Du web aux SIT, sans ressaisie
-        </span>
-
-        <h1 className="mx-auto mt-7 max-w-[1100px] text-[44px] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-[72px] lg:text-[96px]">
-          <span className="block animate-word-in">Tout l&apos;agenda du web.</span>
-          <span className="mt-2 block sm:mt-3">
-            {["Capté.", "Normalisé.", "Dédoublonné."].map((w, i) => (
-              <span
-                key={w}
-                className="hero-gradient inline-block animate-word-in pr-[0.18em] last:pr-0"
-                style={{ animationDelay: `${250 + i * 180}ms` }}
-              >
-                {w}
-              </span>
-            ))}
-          </span>
+      <div className="wrap relative">
+        <h1 className="reveal max-w-[19ch] text-[42px] font-light leading-[1.06] !text-white sm:text-[60px] lg:text-[70px]">
+          Le web publie vos événements. Nous en faisons des données.
         </h1>
 
-        <p
-          className="mx-auto mt-7 max-w-2xl animate-fade-up text-base leading-relaxed text-white/70 sm:text-xl"
-          style={{ animationDelay: "800ms" }}
-        >
-          Sites de communes, associations, salles, billetteries, réseaux sociaux : EventBridge
-          avale le flux événementiel de tout votre territoire et le restitue en{" "}
-          <strong className="font-semibold text-white">une seule base propre</strong>, prête à
-          entrer dans votre SIT.
-        </p>
-
-        <div
-          className="mt-9 flex animate-fade-up flex-col justify-center gap-3 sm:flex-row"
-          style={{ animationDelay: "950ms" }}
-        >
-          <a href="#test-gratuit" className="btn-primary sm:!px-7 sm:!py-4 sm:!text-base">
-            Tester gratuitement sur mes sources
-            <IconArrow />
-          </a>
-          <a href="#pipeline" className="btn-glass sm:!px-7 sm:!py-4 sm:!text-base">
-            Voir le pipeline
-          </a>
+        <div className="mt-7 flex flex-col gap-8 sm:mt-8 lg:flex-row lg:items-end lg:justify-between">
+          <p className="reveal max-w-[34rem] text-[17px] leading-[1.65] text-white/65 sm:text-lg" style={{ animationDelay: "150ms" }}>
+            EventBridge capte en continu les agendas publiés par les communes, les associations,
+            les salles et les billetteries, puis les normalise et les dédoublonne pour livrer à
+            votre SIT des fiches fiables, sans ressaisie.
+          </p>
+          <div className="reveal flex flex-wrap items-center gap-x-7 gap-y-4" style={{ animationDelay: "250ms" }}>
+            <a href="#test-gratuit" className="btn-light">
+              Demander un test gratuit
+            </a>
+            <a href="#fonctionnement" className="link-quiet text-white/80 decoration-white/30 hover:text-white">
+              Voir le fonctionnement
+            </a>
+          </div>
         </div>
-      </div>
 
-      <div className="relative z-10 mt-14 animate-fade-up px-4 sm:mt-16 sm:px-8" style={{ animationDelay: "1100ms" }}>
-        <FluxBand />
-      </div>
+        <div className="mt-12 grid items-center sm:mt-14 lg:grid-cols-[1fr_360px]">
+          <Threads />
 
-      <div className="container-x relative z-10 mt-14 sm:mt-20">
-        <dl className="grid gap-6 border-t border-white/10 pt-10 text-center sm:grid-cols-3">
-          {PROOF.map((p) => (
-            <div key={p.v}>
-              <dt className="font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
-                <span className="gradient-text">{p.v}</span>
-              </dt>
-              <dd className="mt-2 text-sm text-white/55">{p.k}</dd>
-            </div>
-          ))}
-        </dl>
+          <figure
+            className="reveal relative mt-6 rounded-2xl bg-white p-6 text-body shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] lg:mt-0"
+            style={{ animationDelay: "2.2s" }}
+          >
+            <figcaption className="text-[13px] text-muted">Fiche livrée au SIT</figcaption>
+            <p className="mt-1 font-serif text-[26px] leading-tight text-ink">Fête de la musique</p>
+            <dl className="mt-5 divide-y divide-line border-y border-line text-[14px]">
+              {FIELDS.map(([k, v]) => (
+                <div key={k} className="flex gap-4 py-2.5">
+                  <dt className="w-[88px] flex-none text-muted">{k}</dt>
+                  <dd className="text-ink">{v}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="mt-4 flex items-center gap-2 text-[13px] text-muted">
+              <span className="h-2 w-2 rounded-full bg-coral" aria-hidden="true" />
+              Réunit trois annonces du même événement
+            </p>
+          </figure>
+        </div>
       </div>
     </section>
   );
