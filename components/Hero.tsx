@@ -1,65 +1,84 @@
-import { Threads } from "./Threads";
+import { AppMockup } from "./AppMockup";
+import { IArrow, ICheck } from "./Icons";
 
-const FIELDS = [
-  ["Date", "21 juin 2026, de 18 h à minuit"],
-  ["Lieu", "Place du Marché, géolocalisée"],
-  ["Catégorie", "Manifestation culturelle, musique"],
-  ["Tarif", "Gratuit"],
-  ["Organisateur", "Comité des fêtes"],
-];
+const PILLARS = ["Captation à grande échelle", "Normalisation au format SIT", "Dédoublonnage multi-sources", "Détection des changements"];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-ink pb-16 pt-32 text-white sm:pb-24 sm:pt-36">
+    <section className="relative overflow-x-clip bg-ink pt-32 text-white sm:pt-36">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(60% 50% at 75% 55%, rgba(76,67,201,0.28), transparent 70%)" }}
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        style={{
+          background:
+            "radial-gradient(50% 45% at 50% 0%, rgba(76,67,201,0.45), transparent 70%), radial-gradient(40% 40% at 90% 60%, rgba(76,67,201,0.18), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(60%_50%_at_50%_20%,#000,transparent)]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundSize: "56px 56px",
+        }}
       />
 
-      <div className="wrap relative">
-        <h1 className="reveal max-w-[19ch] text-[42px] font-light leading-[1.06] !text-white sm:text-[60px] lg:text-[70px]">
-          Le web publie vos événements. Nous en faisons des données.
+      <div className="wrap relative text-center">
+        <a
+          href="#test-gratuit"
+          className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] py-1 pl-1 pr-3 text-[13px] text-white/80 transition-colors hover:bg-white/10"
+        >
+          <span className="rounded-full bg-iris px-2 py-0.5 text-[11.5px] font-medium text-white">Gratuit</span>
+          <span className="sm:hidden">Testez sur vos sources</span><span className="hidden sm:inline">Testez EventBridge sur vos propres sources</span>
+          <IArrow width={13} height={13} />
+        </a>
+
+        <h1
+          className="reveal mx-auto mt-7 max-w-[20ch] text-[40px] font-semibold leading-[1.04] tracking-[-0.045em] !text-white sm:text-[56px] lg:text-[66px]"
+          style={{ animationDelay: "80ms" }}
+        >
+          Des milliers d&apos;événements épars.{" "}
+          <span className="text-white/55">Une seule base propre, prête pour votre SIT.</span>
         </h1>
 
-        <div className="mt-7 flex flex-col gap-8 sm:mt-8 lg:flex-row lg:items-end lg:justify-between">
-          <p className="reveal max-w-[34rem] text-[17px] leading-[1.65] text-white/65 sm:text-lg" style={{ animationDelay: "150ms" }}>
-            EventBridge capte en continu les agendas publiés par les communes, les associations,
-            les salles et les billetteries, puis les normalise et les dédoublonne pour livrer à
-            votre SIT des fiches fiables, sans ressaisie.
-          </p>
-          <div className="reveal flex flex-wrap items-center gap-x-7 gap-y-4" style={{ animationDelay: "250ms" }}>
-            <a href="#test-gratuit" className="btn-light">
-              Demander un test gratuit
-            </a>
-            <a href="#fonctionnement" className="link-quiet text-white/80 decoration-white/30 hover:text-white">
-              Voir le fonctionnement
-            </a>
-          </div>
+        <p
+          className="reveal mx-auto mt-6 max-w-[42rem] text-[17px] leading-[1.6] text-white/65 sm:text-[19px]"
+          style={{ animationDelay: "160ms" }}
+        >
+          EventBridge capte en continu les événements publiés sur le web — communes, associations,
+          salles, billetteries, réseaux sociaux — puis les normalise, les dédoublonne et les
+          restitue en fiches structurées, directement intégrables dans votre système
+          d&apos;information touristique.
+        </p>
+
+        <div className="reveal mt-9 flex flex-col justify-center gap-3 sm:flex-row" style={{ animationDelay: "240ms" }}>
+          <a href="#test-gratuit" className="btn-iris !px-6 !py-3.5">
+            Tester gratuitement sur mes sources
+          </a>
+          <a href="#fonctionnement" className="btn !px-6 !py-3.5 border border-white/15 text-white hover:bg-white/[0.06]">
+            Découvrir le fonctionnement
+          </a>
         </div>
 
-        <div className="mt-12 grid items-center sm:mt-14 lg:grid-cols-[1fr_360px]">
-          <Threads />
+        <ul
+          className="reveal mx-auto mt-9 flex max-w-4xl flex-wrap justify-center gap-x-7 gap-y-2.5 text-[14px] text-white/60"
+          style={{ animationDelay: "320ms" }}
+        >
+          {PILLARS.map((p) => (
+            <li key={p} className="flex items-center gap-2">
+              <ICheck width={15} height={15} className="text-iris-light" strokeWidth={2.2} />
+              {p}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-          <figure
-            className="reveal relative mt-6 rounded-2xl bg-white p-6 text-body shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] lg:mt-0"
-            style={{ animationDelay: "2.2s" }}
-          >
-            <figcaption className="text-[13px] text-muted">Fiche livrée au SIT</figcaption>
-            <p className="mt-1 font-serif text-[26px] leading-tight text-ink">Fête de la musique</p>
-            <dl className="mt-5 divide-y divide-line border-y border-line text-[14px]">
-              {FIELDS.map(([k, v]) => (
-                <div key={k} className="flex gap-4 py-2.5">
-                  <dt className="w-[88px] flex-none text-muted">{k}</dt>
-                  <dd className="text-ink">{v}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-4 flex items-center gap-2 text-[13px] text-muted">
-              <span className="h-2 w-2 rounded-full bg-coral" aria-hidden="true" />
-              Réunit trois annonces du même événement
-            </p>
-          </figure>
+      {/* capture produit qui déborde sur la section suivante */}
+      <div className="wrap relative mt-16 sm:mt-20">
+        <div className="reveal relative z-10 -mb-40 sm:-mb-56" style={{ animationDelay: "420ms" }}>
+          <div aria-hidden="true" className="absolute -inset-x-10 -top-10 bottom-1/2 -z-10 rounded-[40px] bg-iris/30 blur-3xl" />
+          <AppMockup />
         </div>
       </div>
     </section>

@@ -19,10 +19,9 @@
   h1,
   h2,
   h3 {
-    @apply font-serif text-ink;
-    font-weight: 400;
-    letter-spacing: -0.015em;
-    font-optical-sizing: auto;
+    @apply text-ink;
+    font-weight: 600;
+    letter-spacing: -0.035em;
   }
   :focus-visible {
     outline: 2px solid #4c43c9;
@@ -35,7 +34,7 @@
     @apply mx-auto w-full max-w-page px-4 sm:px-8 lg:px-10;
   }
   .h-section {
-    @apply text-[34px] leading-[1.12] sm:text-[44px] lg:text-[52px];
+    @apply text-[32px] leading-[1.1] sm:text-[40px] lg:text-[46px];
   }
   .lede {
     @apply text-[17px] leading-[1.65] text-muted sm:text-lg;
@@ -51,6 +50,15 @@
   }
   .link-quiet {
     @apply text-[15px] font-medium underline decoration-1 underline-offset-[6px] transition-colors;
+  }
+  .kicker {
+    @apply text-[14px] font-medium text-iris;
+  }
+  .panel {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11.5px] font-medium;
   }
   .field {
     @apply block w-full rounded-[10px] border border-white/15 bg-white/[0.04] px-3.5 py-3 text-[15px] text-white transition-colors placeholder:text-white/30 focus:border-iris-light focus:bg-white/[0.06] focus:outline-none;
@@ -73,6 +81,11 @@
 @keyframes reveal {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
+}
+
+.is-paused .thread,
+.is-paused .reveal {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Problem } from "@/components/Problem";
-import { Pipeline } from "@/components/Pipeline";
-import { Quality } from "@/components/Quality";
+import { Features } from "@/components/Features";
+import { Volume } from "@/components/Volume";
 import { ForWho } from "@/components/ForWho";
 import { FreeTest } from "@/components/FreeTest";
 import { Faq } from "@/components/Faq";
@@ -28,8 +28,8 @@ export default function EventBridgePage() {
       <main id="main">
         <Hero />
         <Problem />
-        <Pipeline />
-        <Quality />
+        <Features />
+        <Volume />
         <ForWho />
         <FreeTest />
         <Faq />

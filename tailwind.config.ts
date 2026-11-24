@@ -20,9 +20,13 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        serif: ["var(--font-serif)", "Georgia", "serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       maxWidth: { page: "1240px" },
+      boxShadow: {
+        card: "0 1px 2px rgba(22,20,43,0.04), 0 8px 24px -12px rgba(22,20,43,0.12)",
+        float: "0 40px 120px -30px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06)",
+      },
     },
   },
   plugins: [],

@@ -59,7 +59,8 @@ export function FreeTest() {
     <section id="test-gratuit" className="scroll-mt-20 bg-ink py-24 text-white sm:py-32">
       <div className="wrap grid gap-16 lg:grid-cols-[5fr_6fr] lg:gap-24">
         <div>
-          <h2 className="h-section max-w-[14ch] !text-white">Essayez EventBridge sur vos propres sources.</h2>
+          <p className="kicker !text-iris-light">Test gratuit</p>
+          <h2 className="h-section mt-3 max-w-[16ch] !text-white">Envoyez-nous vos sites. On vous montre ce qu&apos;on en tire.</h2>
           <p className="mt-6 max-w-[30rem] text-[17px] leading-[1.65] text-white/60 sm:text-lg">
             Pas de démonstration générique. Indiquez-nous les sites dont vous voulez récupérer
             les événements, nous les traitons, puis nous vous recontactons pour vous montrer le
@@ -67,8 +68,8 @@ export function FreeTest() {
           </p>
           <ol className="mt-12 border-t border-white/10">
             {STEPS.map((s, i) => (
-              <li key={s.t} className="grid grid-cols-[2.5rem_1fr] border-b border-white/10 py-5">
-                <span className="font-serif text-[22px] leading-none text-iris-light">{i + 1}</span>
+              <li key={s.t} className="grid grid-cols-[2.75rem_1fr] border-b border-white/10 py-5">
+                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-iris text-[13px] font-semibold text-white">{i + 1}</span>
                 <div>
                   <p className="font-medium">{s.t}</p>
                   <p className="mt-1 text-[15px] text-white/55">{s.d}</p>
@@ -78,10 +79,10 @@ export function FreeTest() {
           </ol>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-ink-2 p-6 sm:p-10">
+        <div className="rounded-2xl border border-white/10 bg-ink-2 p-6 shadow-float sm:p-10">
           {status === "sent" ? (
             <div className="flex min-h-[420px] flex-col justify-center" role="status">
-              <p className="font-serif text-[34px] leading-tight">Demande envoyée.</p>
+              <p className="text-[30px] font-semibold tracking-[-0.03em]">Demande envoyée.</p>
               <p className="mt-4 max-w-[26rem] text-white/60">
                 Nous traitons vos {sites.length} source{sites.length > 1 ? "s" : ""} et vous
                 recontactons rapidement pour convenir d&apos;une démonstration sur vos exemples.

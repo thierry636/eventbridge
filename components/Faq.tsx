@@ -30,7 +30,8 @@ export function Faq() {
     <section id="faq" className="scroll-mt-20 bg-white py-24 sm:py-32">
       <div className="wrap grid gap-12 lg:grid-cols-[5fr_6fr] lg:gap-24">
         <div>
-          <h2 className="h-section">Questions fréquentes</h2>
+          <p className="kicker">FAQ</p>
+          <h2 className="h-section mt-3">Vos questions, nos réponses.</h2>
           <p className="lede mt-6 max-w-[26rem]">
             Une autre question ? Posez-la dans le formulaire de test, nous y répondrons pendant
             la démonstration.

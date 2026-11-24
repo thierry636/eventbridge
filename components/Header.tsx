@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 
 const NAV_LINKS = [
   { href: "#fonctionnement", label: "Fonctionnement" },
-  { href: "#qualite", label: "Qualité des données" },
+  { href: "#volume", label: "Grand volume" },
   { href: "#pour-qui", label: "Pour qui" },
   { href: "#faq", label: "Questions" },
 ];
@@ -41,7 +41,7 @@ export function Header() {
           ))}
         </nav>
 
-        <a href="#test-gratuit" className="btn-light hidden !py-2.5 !text-[14px] lg:inline-flex">
+        <a href="#test-gratuit" className="btn-iris hidden !py-2.5 !text-[14px] lg:inline-flex">
           Demander un test gratuit
         </a>
 

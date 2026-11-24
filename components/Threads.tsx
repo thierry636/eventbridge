@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 /**
  * Le motif signature : chaque source du territoire tire ses fils, qui
  * convergent en un seul point et aboutissent à une fiche propre.
@@ -38,8 +41,33 @@ const PULSES = [
 ];
 
 export function Threads() {
+  const ref = useRef<SVGSVGElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  // Le dessin démarre quand le visuel entre dans l'écran.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="block h-auto w-full" aria-hidden="true">
+    <svg
+      ref={ref}
+      viewBox={`0 0 ${W} ${H}`}
+      className={`block h-auto w-full ${visible ? "" : "is-paused"}`}
+      aria-hidden="true"
+    >
       {SOURCES.map((s, i) => {
         const y = 34 + i * ((H - 68) / (SOURCES.length - 1));
         return (
