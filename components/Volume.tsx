@@ -33,7 +33,7 @@ export function Volume() {
           </div>
           <p className="max-w-[32rem] text-[17px] leading-[1.6] text-white/60">
             Chaque source tire ses annonces, souvent les mêmes, dans des formats différents.
-            EventBridge les fait converger : un événement, une fiche, prête pour votre système d&apos;information touristique.
+            Agendata les fait converger : un événement, une fiche, prête pour votre système d&apos;information touristique.
           </p>
         </div>
 

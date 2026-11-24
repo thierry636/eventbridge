@@ -31,7 +31,7 @@ export function Header() {
       }`}
     >
       <div className="wrap flex h-[72px] items-center justify-between">
-        <Link href="/eventbridge" aria-label="EventBridge, accueil">
+        <Link href="/" aria-label="Agendata, accueil">
           <Logo />
         </Link>
 

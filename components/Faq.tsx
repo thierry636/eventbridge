@@ -1,6 +1,6 @@
 const FAQ = [
   {
-    q: "Quelles sources EventBridge sait-il capter ?",
+    q: "Quelles sources Agendata sait-il capter ?",
     a: "Tout ce qui est publié publiquement sur le web : sites de communes et d'intercommunalités, associations, salles et lieux culturels, billetteries, pages publiques de réseaux sociaux, ainsi que les programmes en PDF ou en image. Nous validons ensemble la liste lors du test gratuit.",
   },
   {
@@ -9,7 +9,7 @@ const FAQ = [
   },
   {
     q: "Comment fonctionne le dédoublonnage ?",
-    a: "EventBridge compare les événements par le sens — dates, lieu, organisateur, contenu — et pas seulement par le titre. Un événement annoncé sur trois sources devient une fiche unique, qui réunit les meilleures informations de chacune en conservant leur provenance.",
+    a: "Agendata compare les événements par le sens — dates, lieu, organisateur, contenu — et pas seulement par le titre. Un événement annoncé sur trois sources devient une fiche unique, qui réunit les meilleures informations de chacune en conservant leur provenance.",
   },
   {
     q: "Que se passe-t-il si un événement change ou est annulé ?",
@@ -21,7 +21,7 @@ const FAQ = [
   },
   {
     q: "Comment se déroule le test gratuit ?",
-    a: "Vous nous indiquez quelques sites représentatifs de votre territoire via le formulaire. Nous les traitons dans EventBridge, puis nous vous recontactons pour une démonstration sur vos propres événements : ce qui a été capté, normalisé et dédoublonné. Sans engagement.",
+    a: "Vous nous indiquez quelques sites représentatifs de votre territoire via le formulaire. Nous les traitons dans Agendata, puis nous vous recontactons pour une démonstration sur vos propres événements : ce qui a été capté, normalisé et dédoublonné. Sans engagement.",
   },
 ];
 
