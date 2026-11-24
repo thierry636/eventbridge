@@ -63,6 +63,9 @@ const config: Config = {
         "fade-up": "fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
         flow: "flow 3.2s linear infinite",
         marquee: "marquee 40s linear infinite",
+        stream: "stream 36s linear infinite",
+        "word-in": "wordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both",
+        shine: "shine 6s linear infinite",
       },
       keyframes: {
         float: {
@@ -76,6 +79,18 @@ const config: Config = {
         flow: {
           "0%": { strokeDashoffset: "40" },
           "100%": { strokeDashoffset: "0" },
+        },
+        stream: {
+          "0%": { transform: "translateX(-50%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        wordIn: {
+          "0%": { opacity: "0", transform: "translateY(0.35em)", filter: "blur(8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)", filter: "blur(0)" },
+        },
+        shine: {
+          "0%": { backgroundPosition: "0% 50%" },
+          "100%": { backgroundPosition: "200% 50%" },
         },
         marquee: {
           "0%": { transform: "translateX(0)" },

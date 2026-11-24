@@ -146,3 +146,13 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Titre du hero : dégradé vivant violet → corail */
+.hero-gradient {
+  background: linear-gradient(90deg, #c9b8ff 0%, #9b4dff 25%, #ff8a7d 50%, #c9b8ff 75%, #9b4dff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: wordIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both, shine 8s linear infinite;
+}
