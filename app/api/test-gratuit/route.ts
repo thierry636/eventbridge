@@ -9,6 +9,24 @@ import { parseSites, validateLead, type LeadInput } from "@/lib/lead";
  *  - RESEND_API_KEY + LEAD_NOTIFY_EMAIL (+ LEAD_FROM_EMAIL) → email via Resend
  * Sans canal configuré, la demande est écrite dans les logs du serveur.
  */
+/**
+ * Diagnostic : GET /api/test-gratuit indique quels canaux sont configurés,
+ * sans jamais exposer de valeur secrète.
+ */
+export async function GET() {
+  const from = process.env.LEAD_FROM_EMAIL;
+  return NextResponse.json({
+    resend: {
+      apiKey: Boolean(process.env.RESEND_API_KEY),
+      notifyEmail: Boolean(process.env.LEAD_NOTIFY_EMAIL),
+      fromEmail: Boolean(from),
+      fromDomain: from ? (from.match(/@([^>\s]+)/)?.[1] ?? "illisible") : "onboarding@resend.dev (par défaut)",
+    },
+    webhook: Boolean(process.env.LEAD_WEBHOOK_URL),
+    willSendEmail: Boolean(process.env.RESEND_API_KEY && process.env.LEAD_NOTIFY_EMAIL),
+  });
+}
+
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
   try {
@@ -100,4 +118,5 @@ async function sendEmail(apiKey: string, to: string, p: Payload) {
     }),
   });
   if (!res.ok) throw new Error(`Resend ${res.status}: ${await res.text()}`);
+  console.info("[test-gratuit] Email accepté par Resend :", await res.text());
 }
