@@ -46,7 +46,7 @@ export function AppMockup() {
           <span className="h-2.5 w-2.5 rounded-full bg-[#E3E2EA]" />
         </div>
         <div className="mx-auto w-full max-w-[340px] rounded-md bg-white px-3 py-1 text-center font-mono text-[11px] text-muted ring-1 ring-line">
-          app.eventbridge.fr/flux
+          app.agendata.fr/flux
         </div>
         <div className="w-10" />
       </div>

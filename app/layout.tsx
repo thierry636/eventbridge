@@ -6,25 +6,25 @@ const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: 
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
 const DESCRIPTION =
-  "EventBridge capte en continu les événements publiés sur le web, les analyse avec l'IA et les restitue en fiches prêtes à intégrer dans votre système d'information touristique (Apidae, …).";
+  "Agendata capte en continu les événements publiés sur le web, les analyse avec l'IA et les restitue en fiches prêtes à intégrer dans votre système d'information touristique (Apidae, …).";
 
 export const metadata: Metadata = {
   title: {
-    default: "EventBridge — Le flux événementiel du web, capté, analysé, restitué",
-    template: "%s · EventBridge",
+    default: "Agendata — Le flux événementiel du web, capté, analysé, restitué",
+    template: "%s · Agendata",
   },
   description: DESCRIPTION,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://eventbridge.example.com"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://agendata.fr"),
   openGraph: {
-    title: "EventBridge — Le flux événementiel du web, capté, analysé, restitué",
+    title: "Agendata — Le flux événementiel du web, capté, analysé, restitué",
     description: DESCRIPTION,
     type: "website",
     locale: "fr_FR",
-    siteName: "EventBridge",
+    siteName: "Agendata",
   },
   twitter: {
     card: "summary_large_image",
-    title: "EventBridge — Les événements du web, prêts pour les systèmes d'information touristique",
+    title: "Agendata — Les événements du web, prêts pour les systèmes d'information touristique",
     description: DESCRIPTION,
   },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },

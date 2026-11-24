@@ -56,7 +56,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, errors }, { status: 422 });
   }
 
-  const payload = { ...lead, suspect, receivedAt: new Date().toISOString(), source: "eventbridge-landing" };
+  const payload = { ...lead, suspect, receivedAt: new Date().toISOString(), source: "agendata-site" };
   const deliveries: Promise<void>[] = [];
 
   const webhook = process.env.LEAD_WEBHOOK_URL;
@@ -107,7 +107,7 @@ async function sendEmail(apiKey: string, to: string, p: Payload) {
   const esc = (s: string) =>
     s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   const html = `
-    <h2>Nouvelle demande de test gratuit EventBridge</h2>
+    <h2>Nouvelle demande de test gratuit Agendata</h2>
     <p><strong>${esc(p.firstName)} ${esc(p.lastName)}</strong> — <a href="mailto:${esc(p.email)}">${esc(p.email)}</a></p>
     <h3>Besoin</h3>
     <p style="white-space:pre-wrap">${esc(p.description)}</p>
@@ -119,7 +119,7 @@ async function sendEmail(apiKey: string, to: string, p: Payload) {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from: process.env.LEAD_FROM_EMAIL ?? "EventBridge <onboarding@resend.dev>",
+      from: process.env.LEAD_FROM_EMAIL ?? "Agendata <onboarding@resend.dev>",
       to: to.split(",").map((s) => s.trim()),
       reply_to: p.email,
       subject: `${p.suspect ? "[Suspect robot] " : ""}Test gratuit — ${p.firstName} ${p.lastName} (${p.sites.length} site${p.sites.length > 1 ? "s" : ""})`,

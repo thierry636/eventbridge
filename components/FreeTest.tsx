@@ -5,7 +5,7 @@ import { MAX_SITES, parseSites, validateLead, type LeadErrors } from "@/lib/lead
 
 const STEPS = [
   { t: "Vous indiquez vos sources", d: "Quelques sites représentatifs : mairies, associations, salles, billetteries." },
-  { t: "Nous les traitons dans EventBridge", d: "Captation réelle, normalisation et dédoublonnage sur vos propres pages." },
+  { t: "Nous les traitons dans Agendata", d: "Captation réelle, normalisation et dédoublonnage sur vos propres pages." },
   { t: "Nous vous présentons le résultat", d: "Une démonstration sur vos événements, avec les fiches obtenues." },
 ];
 

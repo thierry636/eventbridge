@@ -30,7 +30,7 @@ export function Hero() {
           className="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] py-1 pl-1 pr-3 text-[13px] text-white/80 transition-colors hover:bg-white/10"
         >
           <span className="rounded-full bg-iris px-2 py-0.5 text-[11.5px] font-medium text-white">Gratuit</span>
-          <span className="sm:hidden">Testez sur vos sources</span><span className="hidden sm:inline">Testez EventBridge sur vos propres sources</span>
+          <span className="sm:hidden">Testez sur vos sources</span><span className="hidden sm:inline">Testez Agendata sur vos propres sources</span>
           <IArrow width={13} height={13} />
         </a>
 
@@ -46,7 +46,7 @@ export function Hero() {
           className="reveal mx-auto mt-6 max-w-[42rem] text-[17px] leading-[1.6] text-white/65 sm:text-[19px]"
           style={{ animationDelay: "160ms" }}
         >
-          EventBridge capte en continu les événements publiés par les communes, associations,
+          Agendata capte en continu les événements publiés par les communes, associations,
           salles et billetteries, les analyse avec l&apos;IA, les normalise, les dédoublonne et
           les restitue en fiches prêtes pour votre système d&apos;information touristique (Apidae, …).
         </p>

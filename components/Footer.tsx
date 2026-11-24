@@ -19,7 +19,7 @@ export function Footer() {
           <a href="https://app.agendata.fr/" className="hover:text-white">Se connecter</a>
         </nav>
       </div>
-      <div className="wrap mt-12 text-[13px] text-white/35">© {new Date().getFullYear()} EventBridge</div>
+      <div className="wrap mt-12 text-[13px] text-white/35">© {new Date().getFullYear()} Agendata</div>
     </footer>
   );
 }
