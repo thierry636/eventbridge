@@ -1,71 +1,81 @@
-import { IconArrow, IconBolt, IconCheck } from "./Icons";
-import { FlowVisual } from "./FlowVisual";
+import { IconArrow } from "./Icons";
+import { FluxBand } from "./FluxBand";
+
+const PROOF = [
+  { v: "Des centaines", k: "de sources surveillées en continu" },
+  { v: "1 fiche", k: "par événement, quel que soit le nombre d'annonces" },
+  { v: "0 ressaisie", k: "du web jusqu'à votre SIT" },
+];
 
 export function Hero() {
   return (
-    <section className="night-bg grid-overlay relative overflow-hidden pb-20 pt-32 text-white sm:pb-28 sm:pt-40">
-      <div className="container-x relative z-10 grid items-center gap-14 lg:grid-cols-[1fr_1.05fr] lg:gap-12 [&>*]:min-w-0">
-        <div className="animate-fade-up">
-          <span className="pill-dark">
-            <span className="live-dot" />
-            Du web aux SIT, sans ressaisie
-          </span>
+    <section className="night-bg grid-overlay relative overflow-hidden pb-16 pt-28 text-white sm:pb-24 sm:pt-32">
+      {/* halo central derrière le titre */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-24 h-[480px] w-[900px] -translate-x-1/2 rounded-full bg-violet-500/25 blur-[120px]"
+      />
 
-          <h1 className="mt-6 text-[40px] font-bold leading-[1.02] sm:text-[52px] lg:text-[56px]">
-            Des milliers d&apos;événements épars.{" "}
-            <span className="gradient-text">Une seule base propre, prête pour votre SIT.</span>
-          </h1>
+      <div className="container-x relative z-10 text-center">
+        <span className="pill-dark animate-fade-up">
+          <span className="live-dot" />
+          Du web aux SIT, sans ressaisie
+        </span>
 
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-            EventBridge capte en continu le flux événementiel publié sur le web — sites de
-            communes, associations, salles, billetteries, réseaux sociaux — puis le{" "}
-            <strong className="font-semibold text-white">normalise</strong>,{" "}
-            <strong className="font-semibold text-white">dédoublonne</strong> et le restitue en
-            fiches structurées, directement intégrables dans votre système d&apos;information
-            touristique.
-          </p>
-
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <a href="#test-gratuit" className="btn-primary">
-              Tester gratuitement sur mes sources
-              <IconArrow />
-            </a>
-            <a href="#pipeline" className="btn-glass">
-              Voir le pipeline
-            </a>
-          </div>
-
-          <ul className="mt-10 grid max-w-lg grid-cols-1 gap-x-6 gap-y-3 text-sm text-white/70 sm:grid-cols-2">
-            {[
-              "Captation à grande échelle",
-              "Normalisation au format SIT",
-              "Dédoublonnage multi-sources",
-              "Mises à jour détectées",
-            ].map((item) => (
-              <li key={item} className="flex items-center gap-2.5">
-                <span className="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-mint-500/20 text-mint-300">
-                  <IconCheck width={12} height={12} strokeWidth={2.6} />
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="animate-fade-up [animation-delay:150ms]">
-          <FlowVisual />
-          <div className="mt-5 flex flex-wrap gap-3">
-            <div className="glass-card flex animate-float items-center gap-3 px-4 py-3">
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-[10px] bg-coral-500/20 text-coral-200">
-                <IconBolt width={17} height={17} />
+        <h1 className="mx-auto mt-7 max-w-[1100px] text-[44px] font-extrabold leading-[0.95] tracking-[-0.045em] sm:text-[72px] lg:text-[96px]">
+          <span className="block animate-word-in">Tout l&apos;agenda du web.</span>
+          <span className="mt-2 block sm:mt-3">
+            {["Capté.", "Normalisé.", "Dédoublonné."].map((w, i) => (
+              <span
+                key={w}
+                className="hero-gradient inline-block animate-word-in pr-[0.18em] last:pr-0"
+                style={{ animationDelay: `${250 + i * 180}ms` }}
+              >
+                {w}
               </span>
-              <div>
-                <div className="text-sm font-semibold">Changement détecté</div>
-                <div className="text-xs text-white/60">Concert du parc · horaire 20h → 21h</div>
-              </div>
-            </div>
-          </div>
+            ))}
+          </span>
+        </h1>
+
+        <p
+          className="mx-auto mt-7 max-w-2xl animate-fade-up text-base leading-relaxed text-white/70 sm:text-xl"
+          style={{ animationDelay: "800ms" }}
+        >
+          Sites de communes, associations, salles, billetteries, réseaux sociaux : EventBridge
+          avale le flux événementiel de tout votre territoire et le restitue en{" "}
+          <strong className="font-semibold text-white">une seule base propre</strong>, prête à
+          entrer dans votre SIT.
+        </p>
+
+        <div
+          className="mt-9 flex animate-fade-up flex-col justify-center gap-3 sm:flex-row"
+          style={{ animationDelay: "950ms" }}
+        >
+          <a href="#test-gratuit" className="btn-primary sm:!px-7 sm:!py-4 sm:!text-base">
+            Tester gratuitement sur mes sources
+            <IconArrow />
+          </a>
+          <a href="#pipeline" className="btn-glass sm:!px-7 sm:!py-4 sm:!text-base">
+            Voir le pipeline
+          </a>
         </div>
+      </div>
+
+      <div className="relative z-10 mt-14 animate-fade-up px-4 sm:mt-16 sm:px-8" style={{ animationDelay: "1100ms" }}>
+        <FluxBand />
+      </div>
+
+      <div className="container-x relative z-10 mt-14 sm:mt-20">
+        <dl className="grid gap-6 border-t border-white/10 pt-10 text-center sm:grid-cols-3">
+          {PROOF.map((p) => (
+            <div key={p.v}>
+              <dt className="font-display text-3xl font-bold tracking-[-0.03em] sm:text-4xl">
+                <span className="gradient-text">{p.v}</span>
+              </dt>
+              <dd className="mt-2 text-sm text-white/55">{p.k}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
