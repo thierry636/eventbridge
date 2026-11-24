@@ -9,10 +9,10 @@ const AUDIENCES = [
   },
   {
     title: "Intercommunalités & collectivités",
-    text: "Valorisez l'agenda de toutes vos communes, y compris celles qui n'alimentent jamais le SIT.",
+    text: "Valorisez l'agenda de toutes vos communes, y compris celles qui n'alimentent jamais votre base touristique.",
   },
   {
-    title: "Gestionnaires de SIT & réseaux",
+    title: "Gestionnaires de bases touristiques (Apidae, …)",
     text: "Un apport de données qualifiées, normalisées et dédoublonnées, prêtes à entrer dans votre base.",
   },
 ];
@@ -27,7 +27,7 @@ export function ForWho() {
               <span className="h-px w-6 bg-indigo-500" />
               Pour qui ?
             </span>
-            <h2 className="section-title">Pensé pour ceux qui alimentent les SIT.</h2>
+            <h2 className="section-title">Pensé pour ceux qui alimentent les systèmes d&apos;information touristique.</h2>
             <p className="mt-5 text-base leading-relaxed text-ink-500 sm:text-lg">
               EventBridge s&apos;adresse aux structures qui doivent garantir une offre événementielle
               complète, fiable et à jour — sur un territoire, petit ou grand.

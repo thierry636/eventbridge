@@ -54,7 +54,7 @@ const OUTPUTS: Out[] = [
 ];
 
 const BADGE: Record<Out["kind"], { label: string; cls: string }> = {
-  ok: { label: "Prêt pour le SIT", cls: "bg-mint-500/15 text-mint-500" },
+  ok: { label: "Prêt pour Apidae", cls: "bg-mint-500/15 text-mint-500" },
   merge: { label: "3 sources fusionnées", cls: "bg-indigo-500/15 text-indigo-600" },
   update: { label: "Mise à jour", cls: "bg-coral-500/15 text-coral-500" },
 };

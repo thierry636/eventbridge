@@ -11,17 +11,17 @@ const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 
 const DESCRIPTION =
-  "EventBridge capte en masse les événements publiés sur le web, les normalise, les dédoublonne et les restitue en fiches prêtes à intégrer dans votre système d'information touristique.";
+  "EventBridge capte en continu les événements publiés sur le web, les analyse avec l'IA et les restitue en fiches prêtes à intégrer dans votre système d'information touristique (Apidae, …).";
 
 export const metadata: Metadata = {
   title: {
-    default: "EventBridge — Le flux événementiel du web, prêt pour votre SIT",
+    default: "EventBridge — Le flux événementiel du web, capté, analysé, restitué",
     template: "%s · EventBridge",
   },
   description: DESCRIPTION,
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://eventbridge.example.com"),
   openGraph: {
-    title: "EventBridge — Le flux événementiel du web, prêt pour votre SIT",
+    title: "EventBridge — Le flux événementiel du web, capté, analysé, restitué",
     description: DESCRIPTION,
     type: "website",
     locale: "fr_FR",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "EventBridge — Captation et mise en forme des événements pour les SIT",
+    title: "EventBridge — Les événements du web, prêts pour les systèmes d'information touristique",
     description: DESCRIPTION,
   },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },

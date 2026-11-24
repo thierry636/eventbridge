@@ -1,6 +1,6 @@
 import { useId, type SVGProps } from "react";
 
-/** Le monogramme EventBridge : un pont qui relie le web (à gauche) au SIT (à droite). */
+/** Le monogramme EventBridge : un pont qui relie le web (à gauche) au système d'information touristique (à droite). */
 export function LogoMark(props: SVGProps<SVGSVGElement>) {
   const id = useId();
   return (
