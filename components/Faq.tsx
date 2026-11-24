@@ -27,7 +27,7 @@ const FAQ = [
 
 export function Faq() {
   return (
-    <section id="faq" className="scroll-mt-20 bg-white py-24 sm:py-32">
+    <section id="faq" className="scroll-mt-[72px] bg-white py-24 sm:py-32">
       <div className="wrap grid gap-12 lg:grid-cols-[5fr_6fr] lg:gap-24">
         <div>
           <p className="kicker">FAQ</p>
