@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 
 const NAV_LINKS = [
   { href: "#fonctionnement", label: "Fonctionnement" },
-  { href: "#volume", label: "Grand volume" },
+  { href: "#volume", label: "Sources" },
   { href: "#pour-qui", label: "Pour qui" },
   { href: "#faq", label: "Questions" },
 ];

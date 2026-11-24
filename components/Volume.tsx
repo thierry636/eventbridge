@@ -17,7 +17,7 @@ const FACTS = [
 
 export function Volume() {
   return (
-    <section id="volume" className="relative scroll-mt-20 overflow-hidden bg-ink py-20 text-white sm:py-28">
+    <section id="volume" className="relative scroll-mt-[72px] overflow-hidden bg-ink py-20 text-white sm:py-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"
@@ -26,7 +26,7 @@ export function Volume() {
       <div className="wrap relative">
         <div className="grid gap-6 lg:grid-cols-[6fr_5fr] lg:items-end lg:gap-20">
           <div>
-            <p className="kicker !text-iris-light">Conçu pour le volume</p>
+            <p className="kicker !text-iris-light">Toutes vos sources</p>
             <h2 className="h-section mt-3 max-w-[18ch] !text-white">
               Des centaines de sources en entrée. Une seule fiche en sortie.
             </h2>

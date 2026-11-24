@@ -9,7 +9,7 @@ const AUDIENCES = [
 
 export function ForWho() {
   return (
-    <section id="pour-qui" className="scroll-mt-20 bg-white py-20 sm:py-28">
+    <section id="pour-qui" className="scroll-mt-[72px] bg-white py-20 sm:py-28">
       <div className="wrap">
         <div className="mx-auto max-w-3xl text-center">
           <p className="kicker">Pour qui</p>

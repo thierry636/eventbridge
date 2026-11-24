@@ -38,7 +38,7 @@ const SOURCES = [
 
 export function Features() {
   return (
-    <section id="fonctionnement" className="scroll-mt-20 bg-paper py-20 sm:py-28">
+    <section id="fonctionnement" className="scroll-mt-[72px] bg-paper py-20 sm:py-28">
       <div className="wrap">
         <div className="mx-auto max-w-3xl text-center">
           <p className="kicker">Fonctionnement</p>

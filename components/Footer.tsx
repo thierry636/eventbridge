@@ -13,7 +13,7 @@ export function Footer() {
         </div>
         <nav aria-label="Pied de page" className="flex flex-wrap gap-x-8 gap-y-3 text-[14px]">
           <a href="#fonctionnement" className="hover:text-white">Fonctionnement</a>
-          <a href="#volume" className="hover:text-white">Grand volume</a>
+          <a href="#volume" className="hover:text-white">Sources</a>
           <a href="#faq" className="hover:text-white">Questions</a>
           <a href="#test-gratuit" className="hover:text-white">Test gratuit</a>
         </nav>

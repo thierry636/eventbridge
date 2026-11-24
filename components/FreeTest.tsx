@@ -56,7 +56,7 @@ export function FreeTest() {
   }
 
   return (
-    <section id="test-gratuit" className="scroll-mt-20 bg-ink py-24 text-white sm:py-32">
+    <section id="test-gratuit" className="scroll-mt-[72px] bg-ink py-24 text-white sm:py-32">
       <div className="wrap grid gap-16 lg:grid-cols-[5fr_6fr] lg:gap-24">
         <div>
           <p className="kicker !text-iris-light">Test gratuit</p>
