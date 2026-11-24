@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
 
+const APP_URL = "https://app.agendata.fr/";
+
 const NAV_LINKS = [
   { href: "#fonctionnement", label: "Fonctionnement" },
   { href: "#volume", label: "Sources" },
@@ -41,9 +43,14 @@ export function Header() {
           ))}
         </nav>
 
-        <a href="#test-gratuit" className="btn-iris hidden !py-2.5 !text-[14px] lg:inline-flex">
-          Demander un test gratuit
-        </a>
+        <div className="hidden items-center gap-5 lg:flex">
+          <a href={APP_URL} className="text-[14px] text-white/75 transition-colors hover:text-white">
+            Se connecter
+          </a>
+          <a href="#test-gratuit" className="btn-iris !py-2.5 !text-[14px]">
+            Demander un test gratuit
+          </a>
+        </div>
 
         <button
           type="button"
@@ -75,6 +82,9 @@ export function Header() {
                 {link.label}
               </a>
             ))}
+            <a href={APP_URL} className="border-b border-white/5 py-3 text-[15px] text-white/80">
+              Se connecter
+            </a>
             <a href="#test-gratuit" onClick={() => setOpen(false)} className="btn-light mt-4 w-full">
               Demander un test gratuit
             </a>

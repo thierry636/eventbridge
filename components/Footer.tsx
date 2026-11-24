@@ -16,6 +16,7 @@ export function Footer() {
           <a href="#volume" className="hover:text-white">Sources</a>
           <a href="#faq" className="hover:text-white">Questions</a>
           <a href="#test-gratuit" className="hover:text-white">Test gratuit</a>
+          <a href="https://app.agendata.fr/" className="hover:text-white">Se connecter</a>
         </nav>
       </div>
       <div className="wrap mt-12 text-[13px] text-white/35">© {new Date().getFullYear()} EventBridge</div>
