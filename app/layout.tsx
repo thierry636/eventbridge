@@ -2,31 +2,49 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { KEYWORDS, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site";
 
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
 const sans = Geist({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 
-const DESCRIPTION =
-  "Agendata capte en continu les événements publiés sur le web, les analyse avec l'IA et les restitue en fiches prêtes à intégrer dans votre système d'information touristique (Apidae, …).";
-
 export const metadata: Metadata = {
-  title: {
-    default: "Agendata — Le flux événementiel du web, capté, analysé, restitué",
-    template: "%s · Agendata",
+  title: { default: SITE_TITLE, template: "%s · Agendata" },
+  description: SITE_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: KEYWORDS,
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "technology",
+  metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: "/",
+    languages: { "fr-FR": "/" },
+    types: { "text/plain": [{ url: "/llms.txt", title: "llms.txt" }] },
   },
-  description: DESCRIPTION,
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://agendata.fr"),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title: "Agendata — Le flux événementiel du web, capté, analysé, restitué",
-    description: DESCRIPTION,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: "/",
     type: "website",
     locale: "fr_FR",
-    siteName: "Agendata",
+    siteName: SITE_NAME,
   },
   twitter: {
     card: "summary_large_image",
     title: "Agendata — Les événements du web, prêts pour les systèmes d'information touristique",
-    description: DESCRIPTION,
+    description: SITE_DESCRIPTION,
   },
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
