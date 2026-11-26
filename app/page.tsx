@@ -10,16 +10,17 @@ import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { ScrollFx } from "@/components/ScrollFx";
 import { MobileCta } from "@/components/MobileCta";
+import { JsonLd } from "@/components/JsonLd";
+import { SITE_TITLE } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: { absolute: "Agendata — Le flux événementiel du web, capté, analysé, restitué" },
-  alternates: { canonical: "/" },
-  openGraph: { url: "/" },
+  title: { absolute: SITE_TITLE },
 };
 
 export default function HomePage() {
   return (
     <>
+      <JsonLd />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-iris focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
