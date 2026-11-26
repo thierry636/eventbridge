@@ -35,11 +35,16 @@ const GA_ID = "G-HDWEC9FKM9";
 
 export const viewport: Viewport = {
   themeColor: "#16142B",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${sans.variable} ${mono.variable}`}>
+    <html lang="fr" className={`${sans.variable} ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Active les apparitions au défilement avant le premier rendu (pas de flash). */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+      </head>
       <body>
         {children}
         <Script

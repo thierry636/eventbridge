@@ -18,6 +18,14 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
+  // Bloque le défilement de la page derrière le menu ouvert.
+  useEffect(() => {
+    document.documentElement.style.overflow = open ? "hidden" : "";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
@@ -28,10 +36,15 @@ export function Header() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || open ? "border-b border-white/10 bg-ink/95 backdrop-blur" : "border-b border-transparent"
+        open
+          ? "border-b border-transparent bg-ink"
+          : scrolled
+            ? "border-b border-white/10 bg-ink/80 backdrop-blur-xl"
+            : "border-b border-transparent"
       }`}
     >
-      <div className="wrap flex h-[72px] items-center justify-between">
+      <div aria-hidden="true" className="read-progress absolute inset-x-0 bottom-[-1px] h-[2px] bg-gradient-to-r from-iris via-iris-light to-coral" />
+      <div className="wrap relative z-10 flex h-16 items-center justify-between sm:h-[72px]">
         <Link href="/" aria-label="Agendata, accueil">
           <Logo />
         </Link>
@@ -63,50 +76,53 @@ export function Header() {
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-white lg:hidden"
+          className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/15 bg-white/[0.06] text-white backdrop-blur active:scale-95 lg:hidden"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            {open ? (
-              <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            ) : (
-              <path d="M3 7h14M3 13h14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            )}
-          </svg>
+          <span aria-hidden="true" className="relative block h-3 w-[18px]">
+            <span className={`absolute left-0 top-0 h-[1.6px] w-full rounded bg-current transition-transform duration-300 ${open ? "translate-y-[5px] rotate-45" : ""}`} />
+            <span className={`absolute bottom-0 left-0 h-[1.6px] w-full rounded bg-current transition-transform duration-300 ${open ? "-translate-y-[5.4px] -rotate-45" : ""}`} />
+          </span>
         </button>
       </div>
 
       {open ? (
-        <div className="border-t border-white/10 lg:hidden">
-          <div className="wrap flex flex-col py-4">
-            {NAV_LINKS.map((link) => (
+        <div className="fixed inset-0 top-0 -z-0 flex h-[100dvh] flex-col bg-ink lg:hidden">
+          <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+            <div className="aurora aurora-a left-[-20%] top-[20%] h-[320px] w-[320px] bg-iris" />
+            <div className="aurora aurora-b bottom-[0%] right-[-20%] h-[280px] w-[280px] bg-coral/50" />
+          </div>
+          <nav aria-label="Navigation mobile" className="wrap relative flex flex-1 flex-col pt-24">
+            {NAV_LINKS.map((link, i) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-white/5 py-3 text-[15px] text-white/80"
+                className="menu-item group flex items-baseline justify-between border-b border-white/10 py-4 text-[30px] font-semibold tracking-[-0.04em] text-white"
+                style={{ animationDelay: `${60 + i * 60}ms` }}
               >
                 {link.label}
+                <span className="font-mono text-[12px] font-normal tracking-normal text-white/35">0{i + 1}</span>
               </a>
             ))}
-            <a href={APP_URL} className="border-b border-white/5 py-3 text-[15px] text-white/80">
-              Se connecter
-            </a>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setOpen(false)}
-              className="border-b border-white/5 py-3 text-[15px] text-white/80"
-            >
-              Prendre rendez-vous
-            </a>
-            <a href="#test-gratuit" onClick={() => setOpen(false)} className="btn-light mt-4 w-full">
-              Demander un test gratuit
-            </a>
-          </div>
+            <div className="menu-item mt-6 flex gap-5 text-[15px] text-white/70" style={{ animationDelay: "320ms" }}>
+              <a href={APP_URL}>Se connecter</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
+                Prendre rendez-vous
+              </a>
+            </div>
+            <div className="menu-item mt-auto pb-[max(1.5rem,env(safe-area-inset-bottom))]" style={{ animationDelay: "380ms" }}>
+              <a
+                href="#test-gratuit"
+                onClick={() => setOpen(false)}
+                className="flex h-14 w-full items-center justify-center rounded-2xl bg-iris text-[16px] font-semibold text-white shadow-[0_10px_40px_-10px_rgba(76,67,201,0.9)]"
+              >
+                Demander un test gratuit
+              </a>
+            </div>
+          </nav>
         </div>
       ) : null}
     </header>
