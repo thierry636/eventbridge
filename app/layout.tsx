@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
-const GTM_ID = "GTM-MTTWQ6W4";
+const GTM_ID = "GTM-N38SKH6J";
 
 export const viewport: Viewport = {
   themeColor: "#16142B",
