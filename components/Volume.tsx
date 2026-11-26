@@ -1,4 +1,5 @@
 import { Threads } from "./Threads";
+import { ThreadsMobile } from "./ThreadsMobile";
 
 const FIELDS = [
   ["Date", "21 juin 2026, 18:00 – 23:59"],
@@ -24,7 +25,7 @@ export function Volume() {
         style={{ background: "radial-gradient(50% 50% at 70% 55%, rgba(76,67,201,0.3), transparent 70%)" }}
       />
       <div className="wrap relative">
-        <div className="grid gap-6 lg:grid-cols-[6fr_5fr] lg:items-end lg:gap-20">
+        <div data-reveal className="grid gap-6 lg:grid-cols-[6fr_5fr] lg:items-end lg:gap-20">
           <div>
             <p className="kicker !text-iris-light">Toutes vos sources</p>
             <h2 className="h-section mt-3 max-w-[18ch] !text-white">
@@ -37,9 +38,14 @@ export function Volume() {
           </p>
         </div>
 
-        <div className="mt-14 grid items-center lg:grid-cols-[1fr_340px]">
-          <Threads />
-          <figure className="relative mt-6 rounded-2xl bg-white p-6 text-body shadow-float lg:mt-0">
+        <div className="mt-12 grid items-center sm:mt-14 lg:grid-cols-[1fr_340px]">
+          <div className="lg:hidden">
+            <ThreadsMobile />
+          </div>
+          <div className="hidden lg:block">
+            <Threads />
+          </div>
+          <figure data-reveal className="relative mt-2 rounded-2xl bg-white p-6 text-body shadow-float max-lg:shadow-[0_30px_80px_-20px_rgba(76,67,201,0.75)] lg:mt-0">
             <figcaption className="flex items-center justify-between">
               <span className="text-[12.5px] text-muted">Fiche livrée à Apidae</span>
               <span className="badge bg-sage/10 text-sage">Prêt pour Apidae</span>
@@ -56,11 +62,11 @@ export function Volume() {
           </figure>
         </div>
 
-        <dl className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <dl data-reveal-stagger="90" className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:mt-16 lg:grid-cols-4">
           {FACTS.map((f) => (
-            <div key={f.t} className="bg-ink-2 p-6">
-              <dt className="text-[17px] font-semibold tracking-[-0.02em]">{f.t}</dt>
-              <dd className="mt-1.5 text-[14.5px] text-white/55">{f.d}</dd>
+            <div key={f.t} className="bg-ink-2 p-4 sm:p-6">
+              <dt className="text-[15px] font-semibold leading-snug tracking-[-0.02em] sm:text-[17px]">{f.t}</dt>
+              <dd className="mt-1.5 text-[13px] leading-snug text-white/55 sm:text-[14.5px]">{f.d}</dd>
             </div>
           ))}
         </dl>

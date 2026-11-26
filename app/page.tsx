@@ -8,6 +8,8 @@ import { ForWho } from "@/components/ForWho";
 import { FreeTest } from "@/components/FreeTest";
 import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
+import { ScrollFx } from "@/components/ScrollFx";
+import { MobileCta } from "@/components/MobileCta";
 
 export const metadata: Metadata = {
   title: { absolute: "Agendata — Le flux événementiel du web, capté, analysé, restitué" },
@@ -35,6 +37,8 @@ export default function HomePage() {
         <Faq />
       </main>
       <Footer />
+      <MobileCta />
+      <ScrollFx />
     </>
   );
 }

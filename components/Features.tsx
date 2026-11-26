@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SnapRail } from "./SnapRail";
 import { IBolt, ICheck, IEye, IGlobe, ILayers, IMerge, ISpark, IUpload } from "./Icons";
 
 function Cell({
@@ -40,17 +41,22 @@ export function Features() {
   return (
     <section id="fonctionnement" className="scroll-mt-[72px] bg-paper py-20 sm:py-28">
       <div className="wrap">
-        <div className="mx-auto max-w-3xl text-center">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
           <p className="kicker">Fonctionnement</p>
           <h2 className="h-section mt-3">Une chaîne complète, de la page web à la fiche touristique.</h2>
-          <p className="lede mx-auto mt-5 max-w-[40rem]">
+          <p className="lede mx-auto mt-5 max-w-[40rem] max-sm:text-[16px]">
             Captation, extraction, normalisation, dédoublonnage, suivi des changements, relecture
             et restitution : chaque événement suit la même chaîne de traitement, automatisée de
             bout en bout.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 lg:grid-cols-6">
+        <div data-reveal className="mt-10 sm:mt-14">
+        <SnapRail
+          until="lg"
+          labels={["Captation", "Extraction IA", "Normalisation", "Dédoublonnage", "Changements", "Relecture", "Restitution"]}
+          className="lg:grid lg:grid-cols-6 lg:gap-4"
+        >
           {/* Captation */}
           <Cell
             className="lg:col-span-4"
@@ -213,6 +219,7 @@ export function Features() {
               ))}
             </ul>
           </Cell>
+        </SnapRail>
         </div>
       </div>
     </section>

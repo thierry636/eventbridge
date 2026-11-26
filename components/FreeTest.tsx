@@ -59,9 +59,10 @@ export function FreeTest() {
   }
 
   return (
-    <section id="test-gratuit" className="scroll-mt-[72px] bg-ink py-24 text-white sm:py-32">
-      <div className="wrap grid gap-16 lg:grid-cols-[5fr_6fr] lg:gap-24">
-        <div>
+    <section id="test-gratuit" className="relative scroll-mt-16 overflow-hidden bg-ink py-20 text-white sm:scroll-mt-[72px] sm:py-32">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(60% 40% at 80% 60%, rgba(76,67,201,0.35), transparent 70%)" }} />
+      <div className="wrap relative grid gap-12 lg:grid-cols-[5fr_6fr] lg:gap-24">
+        <div data-reveal>
           <p className="kicker !text-iris-light">Test gratuit</p>
           <h2 className="h-section mt-3 max-w-[16ch] !text-white">Envoyez-nous vos sites. On vous montre ce qu&apos;on en tire.</h2>
           <p className="mt-6 max-w-[30rem] text-[17px] leading-[1.65] text-white/60 sm:text-lg">
@@ -69,7 +70,7 @@ export function FreeTest() {
             les événements, nous les traitons, puis nous vous recontactons pour vous montrer le
             résultat. Gratuit et sans engagement.
           </p>
-          <ol className="mt-12 border-t border-white/10">
+          <ol className="mt-10 border-t border-white/10 sm:mt-12">
             {STEPS.map((s, i) => (
               <li key={s.t} className="grid grid-cols-[2.75rem_1fr] border-b border-white/10 py-5">
                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-iris text-[13px] font-semibold text-white">{i + 1}</span>
@@ -82,7 +83,7 @@ export function FreeTest() {
           </ol>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-ink-2 p-6 shadow-float sm:p-10">
+        <div data-reveal className="glow-border rounded-3xl p-5 shadow-float sm:rounded-2xl sm:p-10">
           {status === "sent" ? (
             <div className="flex flex-col" role="status">
               <p className="text-[30px] font-semibold tracking-[-0.03em]">Demande envoyée.</p>
@@ -93,7 +94,7 @@ export function FreeTest() {
               <iframe
                 title="Prendre rendez-vous pour la démonstration"
                 src={bookingEmbedUrl(contact)}
-                className="mt-6 h-[700px] w-full rounded-xl bg-white"
+                className="mt-6 h-[1000px] w-full rounded-xl bg-white sm:h-[700px]"
                 loading="lazy"
               />
             </div>
@@ -168,7 +169,7 @@ export function FreeTest() {
                 <p className="text-[13px] leading-relaxed text-white/40 sm:max-w-[16rem]">
                   Vos informations servent uniquement à préparer le test et à vous recontacter.
                 </p>
-                <button type="submit" className="btn-light w-full sm:w-auto" disabled={status === "sending"}>
+                <button type="submit" className="btn-light w-full !py-4 text-[16px] font-semibold active:scale-[0.98] sm:w-auto sm:!py-3 sm:text-[15px]" disabled={status === "sending"}>
                   {status === "sending" ? "Envoi en cours…" : "Demander le test gratuit"}
                 </button>
               </div>

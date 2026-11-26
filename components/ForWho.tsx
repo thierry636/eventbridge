@@ -1,4 +1,5 @@
 import { IBuilding, IDatabase, IMap, IGlobe } from "./Icons";
+import { SnapRail } from "./SnapRail";
 
 const AUDIENCES = [
   { icon: IGlobe, t: "Offices de tourisme", d: "Une offre événementielle exhaustive sur votre destination, sans y passer vos journées." },
@@ -11,7 +12,7 @@ export function ForWho() {
   return (
     <section id="pour-qui" className="scroll-mt-[72px] bg-white py-20 sm:py-28">
       <div className="wrap">
-        <div className="mx-auto max-w-3xl text-center">
+        <div data-reveal className="mx-auto max-w-3xl text-center">
           <p className="kicker">Pour qui</p>
           <h2 className="h-section mx-auto mt-3 max-w-[22ch]">Pensé pour ceux qui alimentent les systèmes d&apos;information touristique.</h2>
           <p className="lede mx-auto mt-5 max-w-[38rem]">
@@ -19,17 +20,20 @@ export function ForWho() {
             jour, sur un territoire petit ou grand.
           </p>
         </div>
-        <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div data-reveal className="mt-10 sm:mt-14">
+        <SnapRail className="sm:grid sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {AUDIENCES.map(({ icon: Icon, t, d }) => (
-            <li key={t} className="panel p-6">
+            <div key={t} className="panel relative overflow-hidden p-6 max-sm:min-h-[220px]">
+              <div aria-hidden="true" className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-iris/10 blur-2xl sm:hidden" />
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-iris text-white">
                 <Icon width={18} height={18} />
               </span>
               <h3 className="mt-5 text-[17px] font-semibold tracking-[-0.02em]">{t}</h3>
               <p className="mt-2 text-[15px] leading-relaxed text-muted">{d}</p>
-            </li>
+            </div>
           ))}
-        </ul>
+        </SnapRail>
+        </div>
       </div>
     </section>
   );

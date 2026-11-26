@@ -61,7 +61,7 @@
     @apply inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2 py-0.5 text-[11.5px] font-medium;
   }
   .field {
-    @apply block w-full rounded-[10px] border border-white/15 bg-white/[0.04] px-3.5 py-3 text-[15px] text-white transition-colors placeholder:text-white/30 focus:border-iris-light focus:bg-white/[0.06] focus:outline-none;
+    @apply block w-full rounded-[10px] border border-white/15 bg-white/[0.04] px-3.5 py-3 text-base text-white transition-colors sm:text-[15px] placeholder:text-white/30 focus:border-iris-light focus:bg-white/[0.06] focus:outline-none;
   }
 }
 
@@ -93,4 +93,144 @@
   .reveal { animation: none; opacity: 1; }
   .pulse { display: none; }
   html { scroll-behavior: auto; }
+}
+
+/* ------------------------------------------------------------------ */
+/* Couche « mobile wahou » : apparitions au défilement, aurore, rails. */
+/* ------------------------------------------------------------------ */
+
+/* Apparition au défilement — n'agit que si le JS a posé .js sur <html>. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(28px) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Barre de progression de lecture (CSS pur, là où c'est pris en charge). */
+.read-progress {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+@supports (animation-timeline: scroll()) {
+  .read-progress {
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+}
+@keyframes grow {
+  to { transform: scaleX(1); }
+}
+
+/* Aurore du hero */
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.aurora-a { animation: drift-a 14s ease-in-out infinite alternate; }
+.aurora-b { animation: drift-b 18s ease-in-out infinite alternate; }
+@keyframes drift-a {
+  from { transform: translate3d(-20%, -10%, 0) scale(1); }
+  to { transform: translate3d(25%, 15%, 0) scale(1.25); }
+}
+@keyframes drift-b {
+  from { transform: translate3d(20%, 10%, 0) scale(1.1); }
+  to { transform: translate3d(-25%, -5%, 0) scale(0.9); }
+}
+
+/* Texte en dégradé chatoyant */
+.shimmer-text {
+  background: linear-gradient(100deg, #8f89ff 0%, #ffffff 30%, #b9b3ff 50%, #f2a193 70%, #8f89ff 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 7s linear infinite;
+}
+@keyframes shimmer {
+  to { background-position: -250% 0; }
+}
+
+/* Flottement doux (téléphone et bulles du hero) */
+.float-slow { animation: floaty 6s ease-in-out infinite; }
+.float-slower { animation: floaty 8s ease-in-out -2s infinite; }
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Carte qui « arrive » en boucle dans le flux du téléphone */
+.feed-in {
+  animation: feed-in 5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes feed-in {
+  0% { opacity: 0; transform: translateY(-14px) scale(0.96); }
+  12%, 82% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(0) scale(0.98); }
+}
+.ping-dot { position: relative; }
+.ping-dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: inherit;
+  animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  75%, 100% { transform: scale(2.6); opacity: 0; }
+}
+
+/* Bandeau défilant (formats) */
+.marquee {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.marquee-track {
+  animation: marquee 22s linear infinite;
+}
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* Rails horizontaux : pas de barre de défilement visible */
+.rail {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.rail::-webkit-scrollbar { display: none; }
+
+/* Bordure lumineuse en dégradé (fond de carte + bordure en dégradé) */
+.glow-border {
+  border: 1px solid transparent;
+  background:
+    linear-gradient(#1f1c38, #1f1c38) padding-box,
+    linear-gradient(140deg, rgba(185, 179, 255, 0.75), rgba(76, 67, 201, 0.15) 40%, rgba(217, 96, 78, 0.5)) border-box;
+}
+
+/* Menu mobile plein écran : liens en cascade */
+.menu-item {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: menu-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+@keyframes menu-in {
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .aurora-a, .aurora-b, .shimmer-text, .float-slow, .float-slower,
+  .feed-in, .ping-dot::after, .marquee-track, .menu-item, .read-progress {
+    animation: none !important;
+  }
+  .menu-item { opacity: 1; transform: none; }
 }
