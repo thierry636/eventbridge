@@ -47,16 +47,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Script
-          id="google-tag"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
+        {/* Google Analytics : chargé uniquement sur le domaine de production,
+            pour ne compter ni le développement local ni les préversions. */}
         <Script id="google-tag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
+          {`(function () {
+  var h = location.hostname;
+  if (h !== 'agendata.fr' && h !== 'www.agendata.fr') return;
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', '${GA_ID}');
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_ID}';
+  document.head.appendChild(s);
+  // Clic vers la prise de rendez-vous (Calendly), où qu'il soit sur la page.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href*="calendly.com"]') : null;
+    if (a) gtag('event', 'prise_rendez_vous', { link_url: a.href, transport_type: 'beacon' });
+  }, true);
+})();`}
         </Script>
       </body>
     </html>

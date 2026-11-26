@@ -3,6 +3,7 @@
 import { useMemo, useState, type FormEvent } from "react";
 import { MAX_SITES, parseSites, validateLead, type LeadErrors } from "@/lib/lead";
 import { bookingEmbedUrl } from "@/lib/booking";
+import { track } from "@/lib/analytics";
 
 const STEPS = [
   { t: "Vous indiquez vos sources", d: "Quelques sites représentatifs : mairies, associations, salles, billetteries." },
@@ -47,6 +48,7 @@ export function FreeTest() {
       if (res.ok && data.ok) {
         setContact({ name: `${lead.firstName} ${lead.lastName}`.trim(), email: lead.email.trim() });
         setStatus("sent");
+        track("generate_lead", { form: "test_gratuit", nb_sources: sites.length });
         return;
       }
       if (data.errors) setErrors(data.errors);
