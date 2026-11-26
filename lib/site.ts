@@ -1,5 +1,5 @@
 /** Données de référence du site, partagées par les métadonnées, le JSON-LD, robots, sitemap et llms.txt. */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://agendata.fr").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.agendata.fr").replace(/\/$/, "");
 export const SITE_NAME = "Agendata";
 export const APP_URL = "https://app.agendata.fr/";
 export const SITE_TITLE = "Agendata — Le flux événementiel du web, capté, analysé, restitué";
