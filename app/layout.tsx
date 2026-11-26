@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
-const GTM_ID = "GTM-N38SKH6J";
+const GA_ID = "G-HDWEC9FKM9";
 
 export const viewport: Viewport = {
   themeColor: "#16142B",
@@ -44,13 +44,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {children}
         <Script
           id="google-tag"
-          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
           strategy="afterInteractive"
         />
         <Script id="google-tag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());`}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
         </Script>
       </body>
     </html>
