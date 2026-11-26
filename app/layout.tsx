@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
@@ -30,6 +31,8 @@ export const metadata: Metadata = {
   icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
 };
 
+const GA_ID = "G-HDWEC9FKM9";
+
 export const viewport: Viewport = {
   themeColor: "#16142B",
 };
@@ -37,7 +40,20 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${sans.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          id="google-tag"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_ID}');`}
+        </Script>
+      </body>
     </html>
   );
 }
