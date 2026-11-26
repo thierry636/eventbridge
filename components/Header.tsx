@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Logo } from "./Logo";
+import { BOOKING_URL } from "@/lib/booking";
 
 const APP_URL = "https://app.agendata.fr/";
 
@@ -47,6 +48,14 @@ export function Header() {
           <a href={APP_URL} className="text-[14px] text-white/75 transition-colors hover:text-white">
             Se connecter
           </a>
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden whitespace-nowrap text-[14px] text-white/75 transition-colors hover:text-white xl:inline"
+          >
+            Prendre rendez-vous
+          </a>
           <a href="#test-gratuit" className="btn-iris !py-2.5 !text-[14px]">
             Demander un test gratuit
           </a>
@@ -84,6 +93,15 @@ export function Header() {
             ))}
             <a href={APP_URL} className="border-b border-white/5 py-3 text-[15px] text-white/80">
               Se connecter
+            </a>
+            <a
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="border-b border-white/5 py-3 text-[15px] text-white/80"
+            >
+              Prendre rendez-vous
             </a>
             <a href="#test-gratuit" onClick={() => setOpen(false)} className="btn-light mt-4 w-full">
               Demander un test gratuit

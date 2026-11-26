@@ -1,4 +1,5 @@
 import { AppMockup } from "./AppMockup";
+import { BOOKING_URL } from "@/lib/booking";
 import { IArrow, ICheck } from "./Icons";
 
 const PILLARS = ["Captation à grande échelle", "Normalisation des données", "Dédoublonnage multi-sources", "Détection des changements"];
@@ -55,8 +56,13 @@ export function Hero() {
           <a href="#test-gratuit" className="btn-iris !px-6 !py-3.5">
             Tester gratuitement sur mes sources
           </a>
-          <a href="#fonctionnement" className="btn !px-6 !py-3.5 border border-white/15 text-white hover:bg-white/[0.06]">
-            Découvrir le fonctionnement
+          <a
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn !px-6 !py-3.5 border border-white/15 text-white hover:bg-white/[0.06]"
+          >
+            Prendre rendez-vous
           </a>
         </div>
 
