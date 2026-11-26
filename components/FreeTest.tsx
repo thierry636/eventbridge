@@ -2,6 +2,7 @@
 
 import { useMemo, useState, type FormEvent } from "react";
 import { MAX_SITES, parseSites, validateLead, type LeadErrors } from "@/lib/lead";
+import { bookingEmbedUrl } from "@/lib/booking";
 
 const STEPS = [
   { t: "Vous indiquez vos sources", d: "Quelques sites représentatifs : mairies, associations, salles, billetteries." },
@@ -16,6 +17,7 @@ export function FreeTest() {
   const [errors, setErrors] = useState<LeadErrors>({});
   const [serverError, setServerError] = useState<string | null>(null);
   const [sitesRaw, setSitesRaw] = useState("");
+  const [contact, setContact] = useState<{ name: string; email: string }>({ name: "", email: "" });
   const sites = useMemo(() => parseSites(sitesRaw), [sitesRaw]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -43,6 +45,7 @@ export function FreeTest() {
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; errors?: LeadErrors; error?: string };
       if (res.ok && data.ok) {
+        setContact({ name: `${lead.firstName} ${lead.lastName}`.trim(), email: lead.email.trim() });
         setStatus("sent");
         return;
       }
@@ -81,12 +84,18 @@ export function FreeTest() {
 
         <div className="rounded-2xl border border-white/10 bg-ink-2 p-6 shadow-float sm:p-10">
           {status === "sent" ? (
-            <div className="flex min-h-[420px] flex-col justify-center" role="status">
+            <div className="flex flex-col" role="status">
               <p className="text-[30px] font-semibold tracking-[-0.03em]">Demande envoyée.</p>
-              <p className="mt-4 max-w-[26rem] text-white/60">
-                Nous traitons {sites.length > 1 ? `vos ${sites.length} sources` : "votre source"} et vous
-                recontactons rapidement pour convenir d&apos;une démonstration sur vos exemples.
+              <p className="mt-4 max-w-[30rem] text-white/60">
+                Nous traitons {sites.length > 1 ? `vos ${sites.length} sources` : "votre source"}.
+                Choisissez dès maintenant le créneau de votre démonstration de 30 minutes sur vos exemples.
               </p>
+              <iframe
+                title="Prendre rendez-vous pour la démonstration"
+                src={bookingEmbedUrl(contact)}
+                className="mt-6 h-[700px] w-full rounded-xl bg-white"
+                loading="lazy"
+              />
             </div>
           ) : (
             <form onSubmit={handleSubmit} noValidate className="grid gap-5 sm:grid-cols-2">
