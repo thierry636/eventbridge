@@ -74,7 +74,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${GA_ID}');`}
+// Trafic interne : ouvrir une fois /?interne=1 sur chaque appareil (/?interne=0 pour annuler).
+var internal = false;
+try {
+  var flag = new URLSearchParams(location.search).get('interne');
+  if (flag === '1') localStorage.setItem('agendata_interne', '1');
+  if (flag === '0') localStorage.removeItem('agendata_interne');
+  internal = localStorage.getItem('agendata_interne') === '1';
+} catch (e) {}
+gtag('config', '${GA_ID}', internal ? { traffic_type: 'internal' } : {});`}
         </Script>
       </body>
     </html>
