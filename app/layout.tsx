@@ -62,6 +62,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         {/* Active les apparitions au défilement avant le premier rendu (pas de flash). */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
+        {/* Exclure ses propres visites : ouvrir une fois /?interne=1 sur chaque appareil
+            (/?interne=0 pour annuler). Google Analytics est alors désactivé sur cet appareil.
+            Placé dans <head> pour s'exécuter avant le chargement de gtag.js. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{var f=new URLSearchParams(location.search).get('interne');if(f==='1')localStorage.setItem('agendata_interne','1');if(f==='0')localStorage.removeItem('agendata_interne');if(localStorage.getItem('agendata_interne')==='1')window['ga-disable-${GA_ID}']=true}catch(e){}`,
+          }}
+        />
       </head>
       <body>
         {children}
